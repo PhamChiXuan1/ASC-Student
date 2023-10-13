@@ -7,11 +7,11 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-function ManHinhNhacNho() {
+function ManHinhNhacNho({navigation}) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>{navigation.navigate('ManHinhChinh')}}>
         <Image
           style={styles.img}
           source={require("../assets/img/mhnn/Frame 8.png")}
@@ -31,7 +31,7 @@ function ManHinhNhacNho() {
 
       <View style={styles.footer}>
         <View style={styles.trangChu}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>navigation.navigate("ManHinhChinh")}>
             <Image
               source={require("../assets/img/mhnn/icon trang chủ.png")}
               style={styles.imgfooter}
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: "100px",
     width: "360px",
-    backgroundColor: "rgba(62, 150, 231, 1)",
+    backgroundImage: "linear-gradient(to right, #1E90FF,#00BFFF)",
     flexDirection: "row",
   },
 
@@ -139,18 +139,18 @@ const styles = StyleSheet.create({
   },
 
   imgfooter: {
-    height: "19.44px",
+    height: "19px",
     width: "25px",
     left: "20px",
     resizeMode: "contain",
-    top:'50px'
+    top:'61px'
   },
 
   textFooter: {
     fontFamily: "Poppins",
     fontSize: "12px",
     textAlign: "center",
-    top:'60px'
+    top:'71px'
   },
 
   trangChu: {
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
   },
 
   imgQR: {
-    height: "19.44px",
+    height: "19px",
     width: "25px",
     left: "20px",
     resizeMode: "contain",
@@ -176,11 +176,11 @@ const styles = StyleSheet.create({
   bgMaQR: {
     height: "39px",
     width: "52px",
-    backgroundColor: "rgba(62, 150, 231, 1)",
+    backgroundImage: "linear-gradient(to right, #1E90FF,#00BFFF)",
     borderRadius: "15px",
     justifyContent: "center",
     alignSelf: "center",
-    top: '48px'
+    top: '59px'
   },
 
   gopY: {
