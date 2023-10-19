@@ -5,6 +5,10 @@ import ManHinhLichThi from "./screens/ManHinhLichThi";
 import ManHinhLichHoc from "./screens/ManHinhLichHoc";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import ManDangnhap from "./screens/ManDangnhap";
+import ManKhaosat from "./screens/ManKhaosat";
+import ManThanhtich from "./screens/ManThanhtich";
+import ManTaikhoan from "./screens/ManTaikhoan";
 const Stack = createNativeStackNavigator();
 function App() {
   return (
@@ -18,6 +22,10 @@ function App() {
         <Stack.Screen name="ManHinhLHLThi" component={ManHinhLHLThi} />
         <Stack.Screen name="ManHinhChinh" component={ManHinhChinh} />
         <Stack.Screen name="ManHinhNhacNho" component={ManHinhNhacNho} />
+        <Stack.Screen name="ManKhaosat" component={ManKhaosat}/>
+        <Stack.Screen name="ManThanhtich" component={ManThanhtich}/>
+        <Stack.Screen name="ManDangnhap" component={ManDangnhap}/>
+        <Stack.Screen name="ManTaiKhoan" component={ManTaikhoan}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

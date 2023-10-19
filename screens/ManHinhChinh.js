@@ -14,8 +14,8 @@ function ManHinhChinh({ navigation }) {
       <View style={styles.menuHeader}>
         <TouchableOpacity
           style={{ flexDirection: "row", alignItems: "center" }}
-       onPress={()=>navigation.navigate('ManHinhLHLThi')} >
-          <View style={styles.circle1}>
+        >
+          <View style={styles.circle}>
             <Image
               style={styles.imgCircle}
               source={require("../assets/img/mhc/icon lịch.png")}
@@ -34,7 +34,7 @@ function ManHinhChinh({ navigation }) {
               source={require("../assets/img/mhc/XemDiem.png")}
             ></Image>
           </View>
-          <Text style={styles.textHeader}> Xem điểm</Text>
+          <Text style={styles.textHeader}>Xem điểm</Text>
         </TouchableOpacity>
       </View>
 
@@ -157,7 +157,7 @@ function ManHinhChinh({ navigation }) {
         </View>
 
         <View style={styles.content3}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>{navigation.navigate('ManKhaosat')}}>
             <View style={styles.btnKS}>
               <Image
                 style={styles.imgContent}
@@ -187,7 +187,7 @@ function ManHinhChinh({ navigation }) {
             <Text style={styles.textContent3}>Mẫu đơn</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>{navigation.navigate('ManThanhtich')}}>
             <View style={styles.btnTTich}>
               <Image
                 style={styles.imgContent}
@@ -249,7 +249,11 @@ function ManHinhChinh({ navigation }) {
         </View>
 
         <View style={styles.taiKhoan}>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("ManTaiKhoan");
+            }}
+          >
             <Image
               source={require("../assets/img/mhnn/user-alt.png")}
               style={styles.imgfooter}
@@ -266,8 +270,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    height:'800px',
-    width:'360px',
   },
 
   header: {
@@ -309,17 +311,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     alignSelf: "center",
-  },
-
-  circle1: {
-    height: "41px",
-    width: "40px",
-    backgroundColor: "rgba(208, 244, 255, 1)",
-    borderRadius: "25px",
-    justifyContent: "center",
-    alignItems: "center",
-    alignSelf: "center",
-    right:'5px'
   },
 
   line: {
