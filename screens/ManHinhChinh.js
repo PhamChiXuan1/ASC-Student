@@ -14,8 +14,8 @@ function ManHinhChinh({ navigation }) {
       <View style={styles.menuHeader}>
         <TouchableOpacity
           style={{ flexDirection: "row", alignItems: "center" }}
-        >
-          <View style={styles.circle}>
+       onPress={()=>navigation.navigate('ManHinhLHLThi')} >
+          <View style={styles.circle1}>
             <Image
               style={styles.imgCircle}
               source={require("../assets/img/mhc/icon lịch.png")}
@@ -34,7 +34,7 @@ function ManHinhChinh({ navigation }) {
               source={require("../assets/img/mhc/XemDiem.png")}
             ></Image>
           </View>
-          <Text style={styles.textHeader}>Xem điểm</Text>
+          <Text style={styles.textHeader}> Xem điểm</Text>
         </TouchableOpacity>
       </View>
 
@@ -266,6 +266,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+    height:'800px',
+    width:'360px',
   },
 
   header: {
@@ -307,6 +309,17 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     alignSelf: "center",
+  },
+
+  circle1: {
+    height: "41px",
+    width: "40px",
+    backgroundColor: "rgba(208, 244, 255, 1)",
+    borderRadius: "25px",
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+    right:'5px'
   },
 
   line: {
