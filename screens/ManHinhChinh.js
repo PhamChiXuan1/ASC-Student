@@ -14,6 +14,7 @@ function ManHinhChinh({ navigation }) {
       <View style={styles.menuHeader}>
         <TouchableOpacity
           style={{ flexDirection: "row", alignItems: "center" }}
+          onPress={()=>{navigation.navigate('ManHinhLHLThi')}}
         >
           <View style={styles.circle}>
             <Image
@@ -103,7 +104,7 @@ function ManHinhChinh({ navigation }) {
             <Text style={styles.textContent2}>Chương{"\n"}trình khung</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>{navigation.navigate('ManHinhDoiMatKhau')}}>
             <View style={styles.btnDMK}>
               <Image
                 style={styles.imgContent}
@@ -270,6 +271,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+    width:'360px',
   },
 
   header: {
