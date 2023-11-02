@@ -240,7 +240,7 @@ function ManHinhChinh({ navigation }) {
         </View>
 
         <View style={styles.gopY}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>{navigation.navigate('ManHinhGopY')}}>
             <Image
               source={require("../assets/img/mhnn/icon góp ý.png")}
               style={styles.imgfooter}
