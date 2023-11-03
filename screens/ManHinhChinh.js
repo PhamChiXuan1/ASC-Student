@@ -61,7 +61,7 @@ function ManHinhChinh({ navigation }) {
             <Text style={styles.textContent}>Phiếu thu</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>{navigation.navigate('ManHinhCongNo')}}>
             <View style={styles.btnCN}>
               <Image
                 style={styles.imgContent}
@@ -271,13 +271,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    width:'360px',
+  
   },
 
   header: {
     flex: 1,
     height: "100px",
-    width: "360px",
+    // width: "360px",
     backgroundImage: "linear-gradient(to right, #1E90FF,#00BFFF)",
     borderBottomStartRadius: "20px",
     borderBottomEndRadius: "20px",
@@ -533,7 +533,7 @@ const styles = StyleSheet.create({
   footer: {
     flex: 2,
     height: "109px",
-    width: "360px",
+    // width: "360px",
     flexDirection: "row",
   },
 

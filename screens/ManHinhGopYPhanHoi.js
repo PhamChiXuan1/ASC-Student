@@ -149,14 +149,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    height: "800px",
-    width: "360px",
+    
   },
 
   header: {
     flex: 1,
     height: "100px",
-    width: "360px",
+ 
     backgroundImage: "linear-gradient(to right, #1E90FF,#00BFFF)",
     flexDirection: "row",
   },
@@ -262,7 +261,7 @@ const styles = StyleSheet.create({
   footer: {
     flex: 2,
     height: "109px",
-    width: "360px",
+
     flexDirection: "row",
   },
 

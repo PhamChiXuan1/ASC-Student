@@ -93,14 +93,13 @@ import {
     container: {
       flex: 1,
       backgroundColor: "#fff",
-      height: "800px",
-      width: "360px"
+     
     },
   
     header: {
       flex: 1,
       height: "100px",
-      width: "360px",
+   
       // backgroundColor: "rgba(62, 150, 231, 1)",
       backgroundImage: "linear-gradient(to right, #1E90FF,#00BFFF)",
       flexDirection: "row",
@@ -141,7 +140,7 @@ import {
     footer: {
       flex: 2,
       height: "109px",
-      width: "360px",
+   
       flexDirection: "row",
     },
   

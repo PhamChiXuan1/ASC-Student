@@ -51,9 +51,10 @@ function ManHinhDoiMatKhau({ navigation }) {
           ></TextInput>
         </View>
 
-        <TouchableOpacity style={styles.btn}>
+<View style={styles.footer}><TouchableOpacity style={styles.btn}>
             <Text style={styles.btnText}>Xác nhận</Text>
-        </TouchableOpacity>
+        </TouchableOpacity></View>
+        
       </View>
 
       <View style={{ flex: 1 }}></View>
@@ -65,14 +66,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    height: "800px",
-    width: "360px",
+    // height: "800px",
+    // width: "360px",
   },
 
   header: {
     flex: 1,
     height: "100px",
-    width: "360px",
+    // width: "360px",
     backgroundImage: "linear-gradient(to right, #1E90FF,#00BFFF)",
     flexDirection: "row",
   },
@@ -153,8 +154,8 @@ const styles = StyleSheet.create({
     borderRadius: "3px",
     justifyContent: "center",
     backgroundImage: "linear-gradient(to right, #1E90FF,#00BFFF)",
-    left: "15px",
-    top: "220px",
+    top: "200px",
+    alignSelf:'center'
   },
   btnText: {
     fontFamily: "Poppins",
@@ -164,5 +165,10 @@ const styles = StyleSheet.create({
     textAlign: "center",
     lineHeight: "23.44px",
   },
+
+  footer:{
+    flex:1,
+
+  }
 });
 export default ManHinhDoiMatKhau;
