@@ -25,48 +25,47 @@ import {
             <View style={styles.nhapThongTin}>
                 <View style={styles.oThongTin}>
                     <Text style={styles.text}>Trạng thái: </Text>
-                    <Text style={{width:"230px"}}>Đang học</Text>
-                    {/* <TextInput placeholder="" style={{width:"250px"}}></TextInput> */}
+                    <Text style={styles.noiDungTrangThai}>Đang học</Text>
                 </View>
                 <View style={styles.oThongTin}>
                     <Text style={styles.text}>Giới tính: </Text>
-                    <TextInput placeholder="" style={{width:"250px"}}></TextInput>
+                    <Text style={styles.noiDungTrangThai}>Nam</Text>
                 </View>
                 <View style={styles.oThongTin}>
-                    <Text>Ngày sinh: </Text>
-                    <TextInput placeholder=""></TextInput>
+                    <Text style={styles.text}>Ngày sinh: </Text>
+                    <Text style={styles.noiDungTrangThai}>06/11/2002</Text>
                 </View>
                 <View style={styles.oThongTin}>
-                    <Text>MSSV: </Text>
-                    <TextInput placeholder=""></TextInput>
+                    <Text style={styles.text}>MSSV: </Text>
+                    <Text style={styles.noiDungTrangThai}>20030131</Text>
                 </View>
                 <View style={styles.oThongTin}>
-                    <Text>Lớp: </Text>
-                    <TextInput placeholder=""></TextInput>
+                    <Text style={styles.text}>Lớp: </Text>
+                    <Text style={styles.noiDungTrangThai}>DHKTPM16B</Text>
                 </View>
                 <View style={styles.oThongTin}>
-                    <Text>Bậc đào tạo: </Text>
-                    <TextInput placeholder=""></TextInput>
+                    <Text style={styles.text}>Bậc đào tạo: </Text>
+                    <Text style={styles.noiDungTrangThai}>Đại Học</Text>
                 </View>
                 <View style={styles.oThongTin}>
-                    <Text>Khoa: </Text>
-                    <TextInput placeholder=""></TextInput>
+                    <Text style={styles.text}>Khoa: </Text>
+                    <Text style={styles.noiDungTrangThai}>Công Nghệ Thông Tin</Text>
                 </View>
                 <View style={styles.oThongTin}>
-                    <Text>Chuyên ngành: </Text>
-                    <TextInput placeholder=""></TextInput>
+                    <Text style={styles.text}>Chuyên ngành: </Text>
+                    <Text style={styles.noiDungTrangThai}>Kỹ Thuật Phần Mềm</Text>
                 </View>
                 <View style={styles.oThongTin}>
-                    <Text>Địa chỉ: </Text>
-                    <TextInput placeholder=""></TextInput>
+                    <Text style={styles.text}>Địa chỉ: </Text>
+                    <Text style={styles.noiDungTrangThai}>12 Nguyễn Văn Bảo, p4, Gò Vấp</Text>
                 </View>
                 <View style={styles.oThongTin}>
-                    <Text>Số điện thoại: </Text>
-                    <TextInput placeholder=""></TextInput>
+                    <Text style={styles.text}>Số điện thoại: </Text>
+                    <Text style={styles.noiDungTrangThai}>0983300988</Text>
                 </View>
                 <View style={styles.oThongTin}>
-                    <Text>Nơi sinh: </Text>
-                    <TextInput placeholder=""></TextInput>
+                    <Text style={styles.text}>Nơi sinh: </Text>
+                    <Text style={styles.noiDungTrangThai}>Bệnh viện đa khoa</Text>
                 </View>
             </View>
             <TouchableOpacity>
@@ -280,7 +279,7 @@ import {
         borderRadius: "3px",
         justifyContent: "center",
         backgroundColor: "rgba(62, 150, 231, 1)",
-        left: "15px",
+        // left: "15px",
         bottom: "20px"
       },
       btnText:{
@@ -290,6 +289,9 @@ import {
         color: "rgba(255,255,255,1)",
         textAlign:"center",
         lineHeight: "23.44px",
+      },
+      noiDungTrangThai:{
+        width: '230px',
       },
   });
   export default ManTaikhoan;

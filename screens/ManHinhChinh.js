@@ -28,6 +28,7 @@ function ManHinhChinh({ navigation }) {
         <View style={styles.line}></View>
         <TouchableOpacity
           style={{ flexDirection: "row", alignItems: "center" }}
+          onPress={()=>{navigation.navigate('ManXemDiem')}}
         >
           <View style={styles.circle}>
             <Image
@@ -94,7 +95,7 @@ function ManHinhChinh({ navigation }) {
         </View>
 
         <View style={styles.content2}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>{navigation.navigate('ManChuongTrinhKhung')}}>
             <View style={styles.btnCTK}>
               <Image
                 style={styles.imgContent}

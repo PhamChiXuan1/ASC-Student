@@ -12,6 +12,8 @@ import ManTaikhoan from "./screens/ManTaikhoan";
 import ManHinhDoiMatKhau from "./screens/ManHinhDoiMatKhau";
 import ManHinhGopY from "./screens/ManHinhGopYPhanHoi";
 import MannHinhCongNo from "./screens/ManHinhCongNo";
+import ManChuongtrinhkhung from "./screens/ManChuongtrinhkhung";
+import ManXemDiem from "./screens/ManXemdiem";
 const Stack = createNativeStackNavigator();
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
         <Stack.Screen name="ManHinhDoiMatKhau" component={ManHinhDoiMatKhau}/>
         <Stack.Screen name="ManHinhGopY" component={ManHinhGopY}/>
         <Stack.Screen name="ManHinhCongNo" component={MannHinhCongNo}/>
+        <Stack.Screen name="ManXemDiem" component={ManXemDiem}/>
+        <Stack.Screen name="ManChuongTrinhKhung" component={ManChuongtrinhkhung}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
