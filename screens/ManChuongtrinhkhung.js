@@ -117,7 +117,7 @@ const dataMonHoc=[
         return(
             <View style={styles.container}>
                 <View style={styles.header}>
-                    <TouchableOpacity onPress={()=>{navigation.navigate('ManHinhChinh')}}>
+                    <TouchableOpacity onPress={()=>{navigation.navigate('Home')}}>
                     <Image
                         style={styles.img}
                         source={require("../assets/img/mhnn/Frame 8.png")}

@@ -66,7 +66,7 @@ function MannHinhCongNo({ navigation }) {
         <View style={{ flexDirection: "row" }}>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("ManHinhChinh");
+              navigation.navigate("Home");
             }}
           >
             <Image

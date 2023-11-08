@@ -7,11 +7,11 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-function ManHinhNhacNho({navigation}) {
+function ManHinhNhacNho({navigation:{goBack}}) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={()=>{navigation.navigate('ManHinhChinh')}}>
+        <TouchableOpacity onPress={() => goBack()}>
         <Image
           style={styles.img}
           source={require("../assets/img/mhnn/Frame 8.png")}
@@ -28,7 +28,7 @@ function ManHinhNhacNho({navigation}) {
         ></Image>
         <Text style={styles.textContent}>Chưa có thông báo</Text>
       </View>
-
+{/* 
       <View style={styles.footer}>
         <View style={styles.trangChu}>
           <TouchableOpacity onPress={()=>navigation.navigate("ManHinhChinh")}>
@@ -80,7 +80,7 @@ function ManHinhNhacNho({navigation}) {
             <Text style={styles.textFooter}>Tài khoản</Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </View> */}
     </View>
   );
 }

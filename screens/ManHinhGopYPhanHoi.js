@@ -7,14 +7,12 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-function ManHinhGopY({ navigation }) {
+function ManHinhGopY({ navigation:{goBack} }) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity
-          onPress={() => {
-            navigation.navigate("ManHinhChinh");
-          }}
+          onPress={() => goBack()}
         >
           <Image
             style={styles.img}
@@ -85,7 +83,7 @@ function ManHinhGopY({ navigation }) {
           </View>
         </TouchableOpacity>
       </View>
-      <View style={styles.footer}>
+      {/* <View style={styles.footer}>
         <View style={styles.trangChu}>
           <TouchableOpacity onPress={() => navigation.navigate("ManHinhChinh")}>
             <Image
@@ -140,7 +138,7 @@ function ManHinhGopY({ navigation }) {
             <Text style={styles.textFooter}>Tài khoản</Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </View> */}
     </View>
   );
 }

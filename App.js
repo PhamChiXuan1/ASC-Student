@@ -14,14 +14,16 @@ import ManHinhGopY from "./screens/ManHinhGopYPhanHoi";
 import MannHinhCongNo from "./screens/ManHinhCongNo";
 import ManChuongtrinhkhung from "./screens/ManChuongtrinhkhung";
 import ManXemDiem from "./screens/ManXemdiem";
+import TabButton from "./tabButton/TabButton";
 const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="ManHinhChinh"
+        initialRouteName=""
         screenOptions={{ headerShown: false }}
       >
+        <Stack.Screen name='Home' component={TabButton}/>
       <Stack.Screen name="ManHinhLichThi" component={ManHinhLichThi} />
         <Stack.Screen name="ManHinhLichHoc" component={ManHinhLichHoc} />
         <Stack.Screen name="ManHinhLHLThi" component={ManHinhLHLThi} />
@@ -30,7 +32,7 @@ function App() {
         <Stack.Screen name="ManKhaosat" component={ManKhaosat}/>
         <Stack.Screen name="ManThanhtich" component={ManThanhtich}/>
         <Stack.Screen name="ManDangnhap" component={ManDangnhap}/>
-        <Stack.Screen name="ManTaiKhoan" component={ManTaikhoan}/>
+        {/* <Stack.Screen name="ManTaiKhoan" component={ManTaikhoan}/> */}
         <Stack.Screen name="ManHinhDoiMatKhau" component={ManHinhDoiMatKhau}/>
         <Stack.Screen name="ManHinhGopY" component={ManHinhGopY}/>
         <Stack.Screen name="ManHinhCongNo" component={MannHinhCongNo}/>

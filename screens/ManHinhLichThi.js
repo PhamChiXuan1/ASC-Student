@@ -65,7 +65,7 @@ function ManHinhLichThi({ navigation }) {
       <View style={styles.header}>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate("ManHinhChinh");
+            navigation.navigate("Home");
           }}
         >
           <Image

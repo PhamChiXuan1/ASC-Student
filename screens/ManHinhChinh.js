@@ -42,7 +42,7 @@ function ManHinhChinh({ navigation }) {
 
       <View style={styles.content}>
         <View style={styles.content1}>
-          <TouchableOpacity onPress={()=>{navigation.navigate('ManHinhNhacNho')}}>
+          {/* <TouchableOpacity onPress={()=>{navigation.navigate('ManHinhNhacNho')}}>
             <View style={styles.btnNN}>
               <Image
                 style={styles.imgContent}
@@ -50,6 +50,15 @@ function ManHinhChinh({ navigation }) {
               ></Image>
             </View>
             <Text style={styles.textContent}>Nhắc nhở</Text>
+          </TouchableOpacity> */}
+          <TouchableOpacity onPress={()=>{navigation.navigate('ManThanhtich')}}>
+            <View style={styles.btnNN}>
+              <Image
+                style={styles.imgContent}
+                source={require("../assets/img/mhc/iconThanhTich.png")}
+              ></Image>
+            </View>
+            <Text style={styles.textContent}>Thành tích</Text>
           </TouchableOpacity>
 
           <TouchableOpacity>
@@ -102,7 +111,7 @@ function ManHinhChinh({ navigation }) {
                 source={require("../assets/img/mhc/iconCTK.png")}
               ></Image>
             </View>
-            <Text style={styles.textContent2}>Chương{"\n"}trình khung</Text>
+            <Text style={styles.textBtnCTK}>Chương{"\n"}trình khung</Text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={()=>{navigation.navigate('ManHinhDoiMatKhau')}}>
@@ -112,7 +121,7 @@ function ManHinhChinh({ navigation }) {
                 source={require("../assets/img/mhc/iconBLock.png")}
               ></Image>
             </View>
-            <Text style={styles.textContent2}>Đổi{"\n"}mật khẩu</Text>
+            <Text style={styles.textBtnDMK}>Đổi{"\n"}mật khẩu</Text>
           </TouchableOpacity>
 
           <TouchableOpacity>
@@ -149,8 +158,8 @@ function ManHinhChinh({ navigation }) {
                 fontSize: "14px",
                 textAlign: "center",
                 top: "10px",
-                right: "5px",
-                left: "3px",
+                // right: "5px",
+                left: "5px",
               }}
             >
               Thống kê{"\n"}điểm danh
@@ -158,8 +167,8 @@ function ManHinhChinh({ navigation }) {
           </TouchableOpacity>
         </View>
 
-        <View style={styles.content3}>
-          <TouchableOpacity onPress={()=>{navigation.navigate('ManKhaosat')}}>
+        {/* <View style={styles.content3}> */}
+          {/* <TouchableOpacity onPress={()=>{navigation.navigate('ManKhaosat')}}>
             <View style={styles.btnKS}>
               <Image
                 style={styles.imgContent}
@@ -167,9 +176,9 @@ function ManHinhChinh({ navigation }) {
               ></Image>
             </View>
             <Text style={styles.textContent3}>Khảo sát</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
-          <TouchableOpacity>
+          {/* <TouchableOpacity>
             <View style={styles.btnQC}>
               <Image
                 style={styles.imgContent}
@@ -177,9 +186,9 @@ function ManHinhChinh({ navigation }) {
               ></Image>
             </View>
             <Text style={styles.textContent3}>Quảng cáo</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
-          <TouchableOpacity>
+          {/* <TouchableOpacity>
             <View style={styles.btnMD}>
               <Image
                 style={styles.imgContent}
@@ -187,9 +196,9 @@ function ManHinhChinh({ navigation }) {
               ></Image>
             </View>
             <Text style={styles.textContent3}>Mẫu đơn</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
-          <TouchableOpacity onPress={()=>{navigation.navigate('ManThanhtich')}}>
+          {/* <TouchableOpacity onPress={()=>{navigation.navigate('ManThanhtich')}}>
             <View style={styles.btnTTich}>
               <Image
                 style={styles.imgContent}
@@ -197,14 +206,14 @@ function ManHinhChinh({ navigation }) {
               ></Image>
             </View>
             <Text style={styles.textContent3}>Thành tích</Text>
-          </TouchableOpacity>
-        </View>
+          </TouchableOpacity> */}
+        {/* </View> */}
 
         <View style={styles.content4}>
           <Image style={styles.imgContent1} source={require('../assets/img/mhc/hinhanhMHC.png')}></Image> </View>
       </View>
 
-      <View style={styles.footer}>
+      {/* <View style={styles.footer}>
         <View style={styles.trangChu}>
           <TouchableOpacity>
             <Image
@@ -263,7 +272,7 @@ function ManHinhChinh({ navigation }) {
             <Text style={styles.textFooter}>Tài khoản</Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </View> */}
     </View>
   );
 }
@@ -367,7 +376,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-around",
-    top: "10px",
+    marginTop:"20px"
   },
 
   btnNN: {
@@ -377,6 +386,7 @@ const styles = StyleSheet.create({
     borderRadius: "10px",
     justifyContent: "center",
     alignItems: "center",
+    marginLeft:'5px'
   },
 
   btnPT: {
@@ -410,7 +420,8 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-around",
-  },
+    marginTop:"-30px"
+  },  
 
   btnCTK: {
     width: "40px",
@@ -419,9 +430,17 @@ const styles = StyleSheet.create({
     borderRadius: "10px",
     justifyContent: "center",
     alignItems: "center",
-    left: "5px",
+    marginLeft:"10px"
   },
 
+  textBtnCTK:{
+    fontFamily: "Poppins",
+    fontSize: "14px",
+    textAlign: "center",
+    top: "10px",
+    right: "5px",
+    marginLeft:'2px'
+  },
   btnDMK: {
     width: "40px",
     height: "39px",
@@ -429,7 +448,18 @@ const styles = StyleSheet.create({
     borderRadius: "10px",
     justifyContent: "center",
     alignItems: "center",
+    marginLeft:'5px',
   },
+
+  textBtnDMK:{
+    fontFamily: "Poppins",
+    fontSize: "14px",
+    textAlign: "center",
+    top: "10px",
+    right: "5px",
+    marginLeft:'5px',
+  },
+  
 
   btnDRL: {
     width: "40px",
@@ -438,7 +468,8 @@ const styles = StyleSheet.create({
     borderRadius: "10px",
     justifyContent: "center",
     alignItems: "center",
-    left: "8px",
+    marginLeft:'10px'
+
   },
 
   btnTKDD: {
@@ -455,8 +486,7 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins",
     fontSize: "14px",
     textAlign: "center",
-    top: "10px",
-    right: "5px",
+    top: "10px",    
   },
 
   content3: {
@@ -518,7 +548,7 @@ const styles = StyleSheet.create({
   },
 
   content4: {
-    flex: 1,
+    flex: 1.5,
   },
 
   imgContent1:{

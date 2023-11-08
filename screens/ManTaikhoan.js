@@ -77,7 +77,7 @@ import {
             </TouchableOpacity>
         </View>
   
-        <View style={styles.footer}>
+        {/* <View style={styles.footer}>
           <View style={styles.trangChu}>
             <TouchableOpacity onPress={()=>{navigation.navigate('ManHinhChinh')}}>
               <Image
@@ -132,7 +132,7 @@ import {
               <Text style={styles.textFooter}>Tài khoản</Text>
             </TouchableOpacity>
           </View>
-        </View>
+        </View> */}
       </View>
     );
   }
