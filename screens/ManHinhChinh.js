@@ -5,16 +5,48 @@ import {
   TextInput,
   Image,
   TouchableOpacity,
+  FlatList,
+  LogBox,
+  Dimensions,
+  ScrollView
 } from "react-native";
 
+
 function ManHinhChinh({ navigation }) {
+  const carouselData = [
+    {
+      id: "01",
+      image: require("../assets/hinh1.jpg"),
+      name :"Ứng dụng cho hệ thống Đại học - Cao đẳng",
+      url:'https://ascvn.com.vn/huong-dan-su-dung-app-mobile.html',
+    },
+    {
+      id: "02",
+      image: require("../assets/hinh2.jpg"),
+      name:'Tải ứng dụng school',
+      url:'https://ascvn.com.vn/pmt-school.html'
+    },
+    {
+      id: "03",
+      image: require("../assets/hinh3.jpg"),
+      name :"IIG VIỆT NAM",
+      url:'https://online.iigvietnam.com/'
+    },
+  ];
+  const screenWidth = Dimensions.get("window").width;
+
+  // const renderItem =({item, index})=>{
+
+  // }
   return (
     <View style={styles.container}>
       <View style={styles.header}></View>
       <View style={styles.menuHeader}>
         <TouchableOpacity
           style={{ flexDirection: "row", alignItems: "center" }}
-          onPress={()=>{navigation.navigate('ManHinhLHLThi')}}
+          onPress={() => {
+            navigation.navigate("ManHinhLHLThi");
+          }}
         >
           <View style={styles.circle}>
             <Image
@@ -28,7 +60,9 @@ function ManHinhChinh({ navigation }) {
         <View style={styles.line}></View>
         <TouchableOpacity
           style={{ flexDirection: "row", alignItems: "center" }}
-          onPress={()=>{navigation.navigate('ManXemDiem')}}
+          onPress={() => {
+            navigation.navigate("ManXemDiem");
+          }}
         >
           <View style={styles.circle}>
             <Image
@@ -42,16 +76,11 @@ function ManHinhChinh({ navigation }) {
 
       <View style={styles.content}>
         <View style={styles.content1}>
-          {/* <TouchableOpacity onPress={()=>{navigation.navigate('ManHinhNhacNho')}}>
-            <View style={styles.btnNN}>
-              <Image
-                style={styles.imgContent}
-                source={require("../assets/img/mhc/bell.png")}
-              ></Image>
-            </View>
-            <Text style={styles.textContent}>Nhắc nhở</Text>
-          </TouchableOpacity> */}
-          <TouchableOpacity onPress={()=>{navigation.navigate('ManThanhtich')}}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("ManThanhtich");
+            }}
+          >
             <View style={styles.btnNN}>
               <Image
                 style={styles.imgContent}
@@ -71,7 +100,11 @@ function ManHinhChinh({ navigation }) {
             <Text style={styles.textContent}>Phiếu thu</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>{navigation.navigate('ManHinhCongNo')}}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("ManHinhCongNo");
+            }}
+          >
             <View style={styles.btnCN}>
               <Image
                 style={styles.imgContent}
@@ -102,9 +135,12 @@ function ManHinhChinh({ navigation }) {
             </Text>
           </TouchableOpacity>
         </View>
-
         <View style={styles.content2}>
-          <TouchableOpacity onPress={()=>{navigation.navigate('ManChuongTrinhKhung')}}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("ManChuongTrinhKhung");
+            }}
+          >
             <View style={styles.btnCTK}>
               <Image
                 style={styles.imgContent}
@@ -114,7 +150,11 @@ function ManHinhChinh({ navigation }) {
             <Text style={styles.textBtnCTK}>Chương{"\n"}trình khung</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>{navigation.navigate('ManHinhDoiMatKhau')}}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("ManHinhDoiMatKhau");
+            }}
+          >
             <View style={styles.btnDMK}>
               <Image
                 style={styles.imgContent}
@@ -166,113 +206,57 @@ function ManHinhChinh({ navigation }) {
             </Text>
           </TouchableOpacity>
         </View>
-
-        {/* <View style={styles.content3}> */}
-          {/* <TouchableOpacity onPress={()=>{navigation.navigate('ManKhaosat')}}>
-            <View style={styles.btnKS}>
-              <Image
-                style={styles.imgContent}
-                source={require("../assets/img/mhc/iconKS.png")}
-              ></Image>
-            </View>
-            <Text style={styles.textContent3}>Khảo sát</Text>
-          </TouchableOpacity> */}
-
-          {/* <TouchableOpacity>
-            <View style={styles.btnQC}>
-              <Image
-                style={styles.imgContent}
-                source={require("../assets/img/mhc/iconQC.png")}
-              ></Image>
-            </View>
-            <Text style={styles.textContent3}>Quảng cáo</Text>
-          </TouchableOpacity> */}
-
-          {/* <TouchableOpacity>
-            <View style={styles.btnMD}>
-              <Image
-                style={styles.imgContent}
-                source={require("../assets/img/mhc/iconMauDon.png")}
-              ></Image>
-            </View>
-            <Text style={styles.textContent3}>Mẫu đơn</Text>
-          </TouchableOpacity> */}
-
-          {/* <TouchableOpacity onPress={()=>{navigation.navigate('ManThanhtich')}}>
-            <View style={styles.btnTTich}>
-              <Image
-                style={styles.imgContent}
-                source={require("../assets/img/mhc/iconThanhTich.png")}
-              ></Image>
-            </View>
-            <Text style={styles.textContent3}>Thành tích</Text>
-          </TouchableOpacity> */}
-        {/* </View> */}
-
+        
         <View style={styles.content4}>
-          <Image style={styles.imgContent1} source={require('../assets/img/mhc/hinhanhMHC.png')}></Image> </View>
+          
+          <FlatList
+            data={carouselData}
+            renderItem={({ item }) => {
+              return (
+                
+              
+                <View
+                  style={{
+                    height:'200px',
+                    // backgroundColor:'red',
+                    borderRadius: "15px",
+                    shadowColor: "#000",
+                    shadowOffset: {
+                      width: 0,
+                      height: 2,
+                    },
+                    shadowOpacity: 0.25,
+                    shadowRadius: 3.84,
+                    elevation: 5,
+         
+                    // borderBottomWidth:"0.5",
+                   marginRight:'5px',
+                   marginLeft:'20px',
+                  }}
+                  
+                >
+                  
+                  <a href={item.url} target="_blank" style={{textDecoration:'none',}}>
+                  <Image
+                    source={item.image}
+                    style={{ height: "120px", width: "300px", borderTopRightRadius:"15px", borderTopLeftRadius:"15px" }}
+                  ></Image>
+                  <Text>{"\n"}</Text>
+                  <Text style={{fontSize:"14px", fontFamily: "Poppins", marginLeft:'10px',
+                marginTop:'50px',}}>{item.name}</Text>
+                </a>
+               </View>
+                
+              );
+            }}
+            horizontal={true}
+            pagingEnabled={true}
+            scrollEnabled={true}
+          />
+         
+        </View>
+
       </View>
-
-      {/* <View style={styles.footer}>
-        <View style={styles.trangChu}>
-          <TouchableOpacity>
-            <Image
-              source={require("../assets/img/mhnn/icon trang chủ.png")}
-              style={styles.imgfooter}
-            ></Image>
-            <Text style={styles.textFooter}>Trang chủ</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.thongBao}>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate("ManHinhNhacNho");
-            }}
-          >
-            <Image
-              source={require("../assets/img/mhnn/icon chuông thông báo.png")}
-              style={styles.imgfooter}
-            ></Image>
-            <Text style={styles.textFooter}>Nhắc nhở</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.maQR}>
-          <TouchableOpacity>
-            <View style={styles.bgMaQR}>
-              <Image
-                source={require("../assets/img/mhnn/icon qr.png")}
-                style={styles.imgQR}
-              ></Image>
-            </View>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.gopY}>
-          <TouchableOpacity onPress={()=>{navigation.navigate('ManHinhGopY')}}>
-            <Image
-              source={require("../assets/img/mhnn/icon góp ý.png")}
-              style={styles.imgfooter}
-            ></Image>
-            <Text style={styles.textFooter}>Góp ý</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.taiKhoan}>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate("ManTaiKhoan");
-            }}
-          >
-            <Image
-              source={require("../assets/img/mhnn/user-alt.png")}
-              style={styles.imgfooter}
-            ></Image>
-            <Text style={styles.textFooter}>Tài khoản</Text>
-          </TouchableOpacity>
-        </View>
-      </View> */}
     </View>
   );
 }
@@ -281,7 +265,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-  
   },
 
   header: {
@@ -373,10 +356,9 @@ const styles = StyleSheet.create({
   },
 
   content1: {
-    flex: 1,
     flexDirection: "row",
     justifyContent: "space-around",
-    marginTop:"20px"
+    marginTop: "20px",
   },
 
   btnNN: {
@@ -386,7 +368,7 @@ const styles = StyleSheet.create({
     borderRadius: "10px",
     justifyContent: "center",
     alignItems: "center",
-    marginLeft:'5px'
+    marginLeft: "5px",
   },
 
   btnPT: {
@@ -417,11 +399,10 @@ const styles = StyleSheet.create({
   },
 
   content2: {
-    flex: 1,
     flexDirection: "row",
     justifyContent: "space-around",
-    marginTop:"-30px"
-  },  
+    marginTop: "40px",
+  },
 
   btnCTK: {
     width: "40px",
@@ -430,16 +411,16 @@ const styles = StyleSheet.create({
     borderRadius: "10px",
     justifyContent: "center",
     alignItems: "center",
-    marginLeft:"10px"
+    marginLeft: "10px",
   },
 
-  textBtnCTK:{
+  textBtnCTK: {
     fontFamily: "Poppins",
     fontSize: "14px",
     textAlign: "center",
     top: "10px",
     right: "5px",
-    marginLeft:'2px'
+    marginLeft: "2px",
   },
   btnDMK: {
     width: "40px",
@@ -448,18 +429,17 @@ const styles = StyleSheet.create({
     borderRadius: "10px",
     justifyContent: "center",
     alignItems: "center",
-    marginLeft:'5px',
+    marginLeft: "5px",
   },
 
-  textBtnDMK:{
+  textBtnDMK: {
     fontFamily: "Poppins",
     fontSize: "14px",
     textAlign: "center",
     top: "10px",
     right: "5px",
-    marginLeft:'5px',
+    marginLeft: "5px",
   },
-  
 
   btnDRL: {
     width: "40px",
@@ -468,8 +448,7 @@ const styles = StyleSheet.create({
     borderRadius: "10px",
     justifyContent: "center",
     alignItems: "center",
-    marginLeft:'10px'
-
+    marginLeft: "10px",
   },
 
   btnTKDD: {
@@ -486,14 +465,9 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins",
     fontSize: "14px",
     textAlign: "center",
-    top: "10px",    
+    top: "10px",
   },
 
-  content3: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-around",
-  },
   btnKS: {
     width: "40px",
     height: "39px",
@@ -546,79 +520,19 @@ const styles = StyleSheet.create({
     right: "5px",
     left: "2px ",
   },
-
   content4: {
-    flex: 1.5,
+    marginTop: "40px",
+    
+   
   },
-
-  imgContent1:{
-    height:'180px',
-    width:'250px',
-    alignSelf:'center',
-    alignItems:'center',
-    bottom:"20px",
-    resizeMode:'contain',
-    left:'20px',
-  },
-
-  footer: {
-    flex: 2,
-    height: "109px",
-    // width: "360px",
-    flexDirection: "row",
-  },
-
-  imgfooter: {
-    height: "19px",
-    width: "25px",
-    left: "20px",
-    resizeMode: "contain",
-    top: "50px",
-  },
-
-  textFooter: {
-    fontFamily: "Poppins",
-    fontSize: "12px",
-    textAlign: "center",
-    top: "60px",
-  },
-
-  trangChu: {
-    flex: 1,
-  },
-
-  thongBao: {
-    flex: 1,
-  },
-
-  maQR: {
-    flex: 1,
-  },
-
-  imgQR: {
-    height: "19.44px",
-    width: "25px",
-    left: "20px",
-    resizeMode: "contain",
-    position: "absolute",
-    left: "14px",
-  },
-  bgMaQR: {
-    height: "39px",
-    width: "52px",
-    backgroundImage: "linear-gradient(to right, #1E90FF,#00BFFF)",
-    borderRadius: "15px",
-    justifyContent: "center",
+  imgContent1: {
+    height: "180px",
+    width: "250px",
     alignSelf: "center",
-    top: "48px",
-  },
-
-  gopY: {
-    flex: 1,
-  },
-
-  taiKhoan: {
-    flex: 1,
+    alignItems: "center",
+    bottom: "20px",
+    resizeMode: "contain",
+    left: "20px",
   },
 });
 export default ManHinhChinh;
