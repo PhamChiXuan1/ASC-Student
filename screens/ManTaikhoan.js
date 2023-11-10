@@ -71,7 +71,7 @@ import {
             <TouchableOpacity>
                 <View style={styles.btnContainer}>
                     <View style={styles.btn}>
-                        <Text style={styles.btnText}>Xác nhận</Text>
+                        <Text style={styles.btnText}>Đăng xuất</Text>
                     </View>
                 </View>    
             </TouchableOpacity>
