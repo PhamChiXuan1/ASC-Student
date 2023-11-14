@@ -185,7 +185,7 @@ function ManHinhChinh({ navigation }) {
             </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>{navigation.navigate('ManThongKeDiemDanh')}}>
             <View style={styles.btnTKDD}>
               <Image
                 style={styles.imgContent}

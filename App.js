@@ -17,6 +17,7 @@ import ManXemDiem from "./screens/ManXemdiem";
 import TabButton from "./tabButton/TabButton";
 import ManPhieuThuTongHop from "./screens/ManPhieuthutonghop";
 import ManDiemRenLuyen from "./screens/ManDiemrenluyen";
+import ManThongKeDiemDanh from "./screens/ManThongKeDiemDanh";
 const Stack = createNativeStackNavigator();
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Stack.Screen name="ManChuongTrinhKhung" component={ManChuongtrinhkhung}/>
         <Stack.Screen name="ManPhieuThuTongHop" component={ManPhieuThuTongHop}/>
         <Stack.Screen name="ManDiemRenLuyen" component={ManDiemRenLuyen}/>
+        <Stack.Screen name="ManThongKeDiemDanh" component={ManThongKeDiemDanh}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

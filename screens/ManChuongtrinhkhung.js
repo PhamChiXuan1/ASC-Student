@@ -8,6 +8,8 @@ import {
     FlatList
   } from "react-native";
 
+import { useState } from "react";
+
 const data = [
   {
     tenHocKy: 'Học kì 1',
@@ -114,6 +116,8 @@ const dataMonHoc=[
 
 
     function ManChuongtrinhkhung({navigation}){
+      const [showContent, setShowContent]=useState(false);
+
         return(
             <View style={styles.container}>
                 <View style={styles.header}>
@@ -132,7 +136,10 @@ const dataMonHoc=[
                     renderItem={({item})=>{
                       return(
                         <View style={{flexDirection:'column'}}>
-                        <TouchableOpacity style={styles.flatContent}> 
+                        <TouchableOpacity 
+                          onPress={()=>setShowContent(!showContent)}
+                          style={styles.flatContent}
+                        > 
                           <Text style={styles.txtFlat}>{item.tenHocKy}</Text>
                           <View style={{flexDirection: 'row', alignItems: 'center'}}>
                             <Text style={styles.txtFlat}>--(TC:{item.soTinChi})</Text>
@@ -143,28 +150,29 @@ const dataMonHoc=[
                             ></Image>
                           </View>
                         </TouchableOpacity>
-                        <View style={{flexDirection: 'column', borderColor: 'gray', borderWidth: '1px', margin:'10px', marginTop:'-10px'}}>
-                            <View style={{flexDirection: 'row',}}>
-                              <Text style={{width:'60px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>Mã Môn</Text>
-                              <Text style={{width:'180px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>Tên Môn Học</Text>
-                              <Text style={{width:'20px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>TC</Text>
-                              <Text style={{width:'80px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>Trạng Thái</Text>
+                        {showContent && (
+                          <View style={{flexDirection: 'column', borderColor: 'gray', borderWidth: '1px', margin:'10px', marginTop:'-10px'}}>
+                              <View style={{flexDirection: 'row',}}>
+                                <Text style={{width:'60px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>Mã Môn</Text>
+                                <Text style={{width:'180px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>Tên Môn Học</Text>
+                                <Text style={{width:'20px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>TC</Text>
+                                <Text style={{width:'80px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>Trạng Thái</Text>
+                              </View>
+                              <FlatList
+                                data={dataMonHoc}
+                                renderItem={({item})=>{
+                                  return(
+                                    <View style={{flexDirection: 'row',}}>
+                                      <Text style={{width:'60px', textAlign: 'center', borderColor:'gray', borderWidth:'1px'}}>{item.maMonHoc}</Text>
+                                      <Text style={{width:'180px', textAlign: 'center', borderColor:'gray', borderWidth:'1px'}}>{item.tenMonHoc}</Text>
+                                      <Text style={{width:'20px', textAlign: 'center', borderColor:'gray', borderWidth:'1px'}}>{item.soTC}</Text>
+                                      <Text style={{width:'80px', textAlign: 'center', borderColor:'gray', borderWidth:'1px'}}>{item.trangThai}</Text>
+                                  </View>
+                                  )
+                                }}
+                              />
                             </View>
-                            <FlatList
-                              data={dataMonHoc}
-                              renderItem={({item})=>{
-                                return(
-                                  <View style={{flexDirection: 'row',}}>
-                                    <Text style={{width:'60px', textAlign: 'center', borderColor:'gray', borderWidth:'1px'}}>{item.maMonHoc}</Text>
-                                    <Text style={{width:'180px', textAlign: 'center', borderColor:'gray', borderWidth:'1px'}}>{item.tenMonHoc}</Text>
-                                    <Text style={{width:'20px', textAlign: 'center', borderColor:'gray', borderWidth:'1px'}}>{item.soTC}</Text>
-                                    <Text style={{width:'80px', textAlign: 'center', borderColor:'gray', borderWidth:'1px'}}>{item.trangThai}</Text>
-                                </View>
-                                )
-                              }}
-                            />
-                          </View>
-
+                        )}
                         </View>
                       )
                     }}
