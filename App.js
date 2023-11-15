@@ -13,7 +13,9 @@ import ManHinhDoiMatKhau from "./screens/ManHinhDoiMatKhau";
 import ManHinhGopY from "./screens/ManHinhGopYPhanHoi";
 import MannHinhCongNo from "./screens/ManHinhCongNo";
 import ManChuongtrinhkhung from "./screens/ManChuongtrinhkhung";
-import ManXemDiem from "./screens/ManXemdiem";
+import ManXemDiem_ChiTiet from "./screens/ManXemdiem_chitiet";
+import ManXemDiem_TongQuan from "./screens/ManXemDiem_TongQuan";
+import ManXemDiem_TKHK from "./screens/ManXemDiem_TKHK";
 import TabButton from "./tabButton/TabButton";
 import ManPhieuThuTongHop from "./screens/ManPhieuthutonghop";
 import ManDiemRenLuyen from "./screens/ManDiemrenluyen";
@@ -39,7 +41,9 @@ function App() {
         <Stack.Screen name="ManHinhDoiMatKhau" component={ManHinhDoiMatKhau}/>
         <Stack.Screen name="ManHinhGopY" component={ManHinhGopY}/>
         <Stack.Screen name="ManHinhCongNo" component={MannHinhCongNo}/>
-        <Stack.Screen name="ManXemDiem" component={ManXemDiem}/>
+        <Stack.Screen name="ManXemDiem_ChiTiet" component={ManXemDiem_ChiTiet}/>
+        <Stack.Screen name="ManXemDiem_TongQuan" component={ManXemDiem_TongQuan}/>
+        <Stack.Screen name="ManXemDiem_TKHK" component={ManXemDiem_TKHK}/>
         <Stack.Screen name="ManChuongTrinhKhung" component={ManChuongtrinhkhung}/>
         <Stack.Screen name="ManPhieuThuTongHop" component={ManPhieuThuTongHop}/>
         <Stack.Screen name="ManDiemRenLuyen" component={ManDiemRenLuyen}/>

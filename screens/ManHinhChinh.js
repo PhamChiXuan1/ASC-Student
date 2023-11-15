@@ -61,7 +61,7 @@ function ManHinhChinh({ navigation }) {
         <TouchableOpacity
           style={{ flexDirection: "row", alignItems: "center" }}
           onPress={() => {
-            navigation.navigate("ManXemDiem");
+            navigation.navigate("ManXemDiem_TongQuan");
           }}
         >
           <View style={styles.circle}>
