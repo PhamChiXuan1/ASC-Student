@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   FlatList,
 } from "react-native";
-
+import { useState, useEffect } from "react";
 const dataMHLHLT = [
   {
     thu: "Thứ 2 - 28/08/2023",
@@ -61,7 +61,18 @@ const dataMHLHLT = [
     giangVien: "Nguyễn Năm",
   },
 ];
-function ManHinhLHLThi({ navigation }) {
+function ManHinhLHLThi({ navigation, route }) {
+
+  const user = route.params.user;
+  const [data, setData] = useState([]);
+  const apiUrl = "https://65538ffb5449cfda0f2ee69f.mockapi.io/user";
+  useEffect(() => {
+    fetch(`${apiUrl}/${user.id}/lopHoc`)
+      .then((response) => response.json())
+      .then((json) => setData(json))
+      .catch((error) => console.error(error));
+  }, []);
+
   const Item = ({ title }) => (
     <View>
       <View style={styles.content2}>
@@ -71,7 +82,7 @@ function ManHinhLHLThi({ navigation }) {
         <Text style={styles.textC3}>{title.tiet}</Text>
       </View>
       <View style={styles.content4}>
-        <Image style={styles.imgc4} source={title.img}></Image>
+        {/* <Image style={styles.imgc4} source={title.img}></Image> */}
         <View style={styles.c4Text}>
           <Text style={styles.textC4}>{title.tenMonHoc}</Text>
           <View style={{ flexDirection: "row", top: "10px" }}>
@@ -93,7 +104,7 @@ function ManHinhLHLThi({ navigation }) {
       <View style={styles.header}>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate("Home");
+            navigation.navigate("ManHinhChinh", {user});
           }}
         >
           <Image
@@ -127,7 +138,7 @@ function ManHinhLHLThi({ navigation }) {
         </View>
 
         <FlatList
-          data={dataMHLHLT}
+          data={data}
           renderItem={({ item }) => <Item title={item} />}
           scrollEnabled={true}
         />
@@ -149,11 +160,11 @@ function ManHinhLHLThi({ navigation }) {
           <Text style={styles.textf1}>Tất cả</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.btnf2} onPress={()=>{navigation.navigate("ManHinhLichHoc")}}>
+        <TouchableOpacity style={styles.btnf2} onPress={()=>{navigation.navigate("ManHinhLichHoc", {user})}}>
           <Text style={styles.textf1}>Lịch học</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.btnf3} onPress={()=>{navigation.navigate("ManHinhLichThi")}}>
+        <TouchableOpacity style={styles.btnf3} onPress={()=>{navigation.navigate("ManHinhLichThi", {user})}}>
           <Text style={styles.textf1}>Lịch thi</Text>
         </TouchableOpacity>
       </View>

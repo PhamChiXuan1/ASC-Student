@@ -7,11 +7,12 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-function ManHinhNhacNho({navigation:{goBack}}) {
+function ManHinhNhacNho({navigation, route}) {
+  const user = route.params.user;
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => goBack()}>
+        <TouchableOpacity onPress={() => {"ManHinhChinh", {user}}}>
         <Image
           style={styles.img}
           source={require("../assets/img/mhnn/Frame 8.png")}
@@ -28,10 +29,10 @@ function ManHinhNhacNho({navigation:{goBack}}) {
         ></Image>
         <Text style={styles.textContent}>Chưa có thông báo</Text>
       </View>
-{/* 
+
       <View style={styles.footer}>
         <View style={styles.trangChu}>
-          <TouchableOpacity onPress={()=>navigation.navigate("ManHinhChinh")}>
+          <TouchableOpacity onPress={()=>navigation.navigate("ManHinhChinh", {user})}>
             <Image
               source={require("../assets/img/mhnn/icon trang chủ.png")}
               style={styles.imgfooter}
@@ -62,7 +63,7 @@ function ManHinhNhacNho({navigation:{goBack}}) {
         </View>
 
         <View style={styles.gopY}>
-          <TouchableOpacity onPress={()=>{navigation.navigate('ManHinhGopY')}}>
+          <TouchableOpacity onPress={()=>{navigation.navigate('ManHinhGopY', {user})}}>
             <Image
               source={require("../assets/img/mhnn/icon góp ý.png")}
               style={styles.imgfooter}
@@ -72,7 +73,7 @@ function ManHinhNhacNho({navigation:{goBack}}) {
         </View>
 
         <View style={styles.taiKhoan}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>{'ManTaiKhoan', {user}}}>
             <Image
               source={require("../assets/img/mhnn/user-alt.png")}
               style={styles.imgfooter}
@@ -80,7 +81,7 @@ function ManHinhNhacNho({navigation:{goBack}}) {
             <Text style={styles.textFooter}>Tài khoản</Text>
           </TouchableOpacity>
         </View>
-      </View> */}
+      </View>
     </View>
   );
 }
@@ -94,8 +95,7 @@ const styles = StyleSheet.create({
 
   header: {
     flex:1,
-    height: "100px",
-
+    height: "10px",
     backgroundImage: "linear-gradient(to right, #1E90FF,#00BFFF)",
     flexDirection: "row",
   },
@@ -135,7 +135,6 @@ const styles = StyleSheet.create({
   footer: {
     flex: 2,
     height: "109px",
-   
     flexDirection: "row",
   },
 
@@ -144,14 +143,14 @@ const styles = StyleSheet.create({
     width: "25px",
     left: "20px",
     resizeMode: "contain",
-    top:'61px'
+    top:'72px'
   },
 
   textFooter: {
     fontFamily: "Poppins",
     fontSize: "12px",
     textAlign: "center",
-    top:'71px'
+    top:'82px'
   },
 
   trangChu: {
@@ -181,7 +180,7 @@ const styles = StyleSheet.create({
     borderRadius: "15px",
     justifyContent: "center",
     alignSelf: "center",
-    top: '59px'
+    top: '70px'
   },
 
   gopY: {

@@ -7,12 +7,13 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-function ManHinhGopY({ navigation:{goBack} }) {
+function ManHinhGopY({ navigation, route }) {
+  const user = route.params.user;
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity
-          onPress={() => goBack()}
+          onPress={() => navigation.navigate('ManHinhChinh', {user})}
         >
           <Image
             style={styles.img}
@@ -83,9 +84,9 @@ function ManHinhGopY({ navigation:{goBack} }) {
           </View>
         </TouchableOpacity>
       </View>
-      {/* <View style={styles.footer}>
+      <View style={styles.footer}>
         <View style={styles.trangChu}>
-          <TouchableOpacity onPress={() => navigation.navigate("ManHinhChinh")}>
+          <TouchableOpacity onPress={() => navigation.navigate("ManHinhChinh", {user})}>
             <Image
               source={require("../assets/img/mhnn/icon trang chủ.png")}
               style={styles.imgfooter}
@@ -95,7 +96,7 @@ function ManHinhGopY({ navigation:{goBack} }) {
         </View>
 
         <View style={styles.thongBao}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>{navigation.navigate('ManHinhNhacNho', {user})}}>
             <Image
               source={require("../assets/img/mhnn/icon chuông thông báo.png")}
               style={styles.imgfooter}
@@ -118,7 +119,7 @@ function ManHinhGopY({ navigation:{goBack} }) {
         <View style={styles.gopY}>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("ManHinhGopY");
+              navigation.navigate("ManHinhGopY", {user});
             }}
           >
             <Image
@@ -130,7 +131,7 @@ function ManHinhGopY({ navigation:{goBack} }) {
         </View>
 
         <View style={styles.taiKhoan}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>{navigation.navigate('ManTaiKhoan', {user})}}>
             <Image
               source={require("../assets/img/mhnn/user-alt.png")}
               style={styles.imgfooter}
@@ -138,7 +139,7 @@ function ManHinhGopY({ navigation:{goBack} }) {
             <Text style={styles.textFooter}>Tài khoản</Text>
           </TouchableOpacity>
         </View>
-      </View> */}
+      </View>
     </View>
   );
 }
@@ -268,14 +269,14 @@ const styles = StyleSheet.create({
     width: "25px",
     left: "20px",
     resizeMode: "contain",
-    top: "61px",
+    top: "72px",
   },
 
   textFooter: {
     fontFamily: "Poppins",
     fontSize: "12px",
     textAlign: "center",
-    top: "71px",
+    top: "82px",
   },
 
   trangChu: {
@@ -305,7 +306,7 @@ const styles = StyleSheet.create({
     borderRadius: "15px",
     justifyContent: "center",
     alignSelf: "center",
-    top: "59px",
+    top: "70px",
   },
 
   gopY: {

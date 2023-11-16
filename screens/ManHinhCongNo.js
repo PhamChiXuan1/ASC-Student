@@ -59,14 +59,15 @@ const Database = [
     congNo: "0",
   },
 ];
-function MannHinhCongNo({ navigation }) {
+function MannHinhCongNo({ navigation, route }) {
+  const user = route.params.user
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={{ flexDirection: "row" }}>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("Home");
+              navigation.navigate("ManHinhChinh", {user});
             }}
           >
             <Image

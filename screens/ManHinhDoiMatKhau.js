@@ -7,13 +7,15 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-function ManHinhDoiMatKhau({ navigation }) {
+function ManHinhDoiMatKhau({ navigation, route }) {
+  const user = route.params.user;
+ 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate("Home");
+            navigation.navigate("ManHinhChinh", {user});
           }}
         >
           <Image

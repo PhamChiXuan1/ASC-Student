@@ -6,8 +6,26 @@ import {
     Image,
     TouchableOpacity,
   } from "react-native";
-
+import { useState, useEffect } from "react";
   function ManDangnhap({navigation}){
+    const [userName, setUserName] = useState("");
+    const [password, setPassword] = useState("");
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        fetch("https://65538ffb5449cfda0f2ee69f.mockapi.io/user")
+          .then((response) => response.json())
+          .then((json) => setData(json))
+          .catch((error) => console.error(error));
+      }, []);
+
+      const checkLogin = (userName, password) => {
+        const user = data.find((item) => item.username === userName && item.password === password);
+        if (user) {
+            navigation.navigate("ManHinhChinh",{user:user});
+        } else {
+          alert("Wrong username or password");    
+        }
+      };  
     return(
         <View style={styles.container}>
             <View style={styles.header}>
@@ -35,24 +53,27 @@ import {
                 
             </View>
             <View style={styles.input}>
+                
                 <TextInput 
                     placeholder="  Nhập tài khoản"
                     
-                >
+               style={{   height: "44px",
+               width: "330px",}} onChangeText={setUserName} >
 
                 </TextInput>
             </View>
             
             <View style={styles.input}>
-                <TextInput 
+                <TextInput  secureTextEntry 
                     placeholder="  Nhập mật khẩu"
                     
-                >
+                    style={{   height: "44px",
+                    width: "330px", }} onChangeText={setPassword} >
 
                 </TextInput>
             </View>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>{checkLogin(userName, password)}}>
                 <View style={styles.btnContainer}>
                     <View style={styles.btn}>
                         <Text style={styles.btnText}>Đăng nhập</Text>
@@ -74,8 +95,8 @@ import {
             </View>
             
             <View style={styles.footer}>
-                <Text>Điều khoản sử dụng và chính sách</Text>
-                <Text style={{fontWeight: 'bold', fontSize: 16, marginBottom: '15px'}}>ascvn.com.vn</Text>
+                <Text style={{}}>Điều khoản sử dụng và chính sách</Text>
+                <Text style={{fontWeight: 'bold', fontSize: 16, }}>ascvn.com.vn</Text>
             </View>
         </View>
     );
@@ -90,7 +111,7 @@ import {
     },
     
     header: {
-        flex: 2.5,
+     
         height: "100px",
         width: "360px",
         backgroundImage: "linear-gradient(to right, #1E90FF,#00BFFF)",
@@ -110,7 +131,7 @@ import {
     },
 
     menuHeader: {
-        flex: 1,
+       
         height: "82px",
         width: "345px",
         borderRadius: "20px",
@@ -145,19 +166,18 @@ import {
         resizeMode: "contain",
       },
       footer:{
-        flex: 5,
-        justifyContent: "flex-end",
+        marginTop:'250px',
         alignItems: "center"
       },
       btnContainer:{
-        flex: 1,
+ 
       },
       btn:{
         height: "45px",
         width: "330px",
         borderRadius: "3px",
         justifyContent: "center",
-        backgroundColor: "rgba(62, 150, 231, 1)",
+        backgroundImage: "linear-gradient(to right, #1E90FF,#00BFFF)",  
         left: "15px"
       },
       btnText:{

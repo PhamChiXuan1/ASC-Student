@@ -33,7 +33,8 @@ const dataMHLHLT = [
     giangVien: "Nguyễn Năm",
   },
 ];
-function ManHinhLichThi({ navigation }) {
+function ManHinhLichThi({ navigation, route }) {
+  const user = route.params.route
   const Item = ({ title }) => (
     <View>
       <View style={styles.content2}>
@@ -117,11 +118,11 @@ function ManHinhLichThi({ navigation }) {
       </View>
 
       <View style={styles.footer}>
-        <TouchableOpacity style={styles.btnf1} onPress={()=>navigation.navigate('ManHinhLHLThi')}>
+        <TouchableOpacity style={styles.btnf1} onPress={()=>navigation.navigate('ManHinhLHLThi', {user})}>
           <Text style={styles.textf1}>Tất cả</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.btnf2} onPress={()=>navigation.navigate('ManHinhLichHoc')}>
+        <TouchableOpacity style={styles.btnf2} onPress={()=>navigation.navigate('ManHinhLichHoc', {user})}>
           <Text style={styles.textf1}>Lịch học</Text>
         </TouchableOpacity>
 
