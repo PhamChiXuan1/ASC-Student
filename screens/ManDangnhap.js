@@ -6,11 +6,14 @@ import {
     Image,
     TouchableOpacity,
   } from "react-native";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { useFocusEffect } from "@react-navigation/native";
   function ManDangnhap({navigation}){
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [data, setData] = useState([]);
+    const [login, setLogin]= useState("");
+    
     useEffect(() => {
         fetch("https://65538ffb5449cfda0f2ee69f.mockapi.io/user")
           .then((response) => response.json())
@@ -22,10 +25,23 @@ import { useState, useEffect } from "react";
         const user = data.find((item) => item.username === userName && item.password === password);
         if (user) {
             navigation.navigate("ManHinhChinh",{user:user});
+        setLogin("")
         } else {
-          alert("Wrong username or password");    
+        //   alert("Wrong username or password");    
+        setLogin("Sai tên đăng nhập hoặc mật khẩu")
+        // setLogin("")
         }
       };  
+
+      useFocusEffect(
+       useCallback(() => {
+          fetch("https://65538ffb5449cfda0f2ee69f.mockapi.io/user")
+            .then((response) => response.json())
+            .then((json) => {
+              setData(json);
+            });
+        }, [])
+      );
     return(
         <View style={styles.container}>
             <View style={styles.header}>
@@ -64,7 +80,7 @@ import { useState, useEffect } from "react";
             </View>
             
             <View style={styles.input}>
-                <TextInput  secureTextEntry 
+                <TextInput  secureTextEntry
                     placeholder="  Nhập mật khẩu"
                     
                     style={{   height: "44px",
@@ -80,7 +96,9 @@ import { useState, useEffect } from "react";
                     </View>
                 </View>
             </TouchableOpacity>
-
+            <View >
+                <Text style={{marginLeft:'15px', color:'red',}}>{login}{"\n"}</Text>
+                </View>
             <View style={{flexDirection: "row", justifyContent: "space-between"}}>
             <TouchableOpacity>
                 <View>

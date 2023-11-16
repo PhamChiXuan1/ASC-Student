@@ -11,16 +11,16 @@ import {
 const dataMHLHLT = [
   {
     thu: "Thứ 2 - 28/08/2023",
-    tiet: "Tiết 1 - 3",
+    tiet: "Tiết 4 - 6",
     img: require("../assets/img/mhlhlt/lichhoc.png"),
-    tenMonHoc: "DHKTPM 16B: Lập trình thuyết bị di động",
-    phong: "X13.04",
-    giangVien: "Nguyễn Trọng Tiến",
+    tenMonHoc: "DHKTPM16: Kiểm thử phần mềm",
+    phong: "XH8.03",
+    giangVien: "Nguyễn Năm",
   },
 
   {
-    thu: "Thứ 7 - 02/10/2023",
-    tiet: "    Tiết 10 - 12",
+    thu: "Thứ 3 - 29/08/2023",
+    tiet: "    Tiết 1 - 3",
     img: require("../assets/img/mhlhlt/lichhoc.png"),
     tenMonHoc: "DHKTPM 16B: Lập trình WWW (Java)",
     phong: "X10.05",
@@ -28,16 +28,26 @@ const dataMHLHLT = [
   },
 
   {
+    thu: "Thứ 5 - 01/09/2023",
     tiet: "Tiết 4 - 6",
     img: require("../assets/img/mhlhlt/lichhoc.png"),
-    tenMonHoc: "DHKTPM16: Đảm bảo chất lượng và Kiểm" + "\n" + "thử phần mềm",
-    phong: "XH8.03",
+    tenMonHoc: "DHKTPM16: Kiểm thử phần mềm",
+    phong: "XH9.03",
     giangVien: "Nguyễn Năm",
+  },
+  {
+    thu: "Thứ 7 - 03/09/2023",
+    tiet: "Tiết 7 - 9",
+    img: require("../assets/img/mhlhlt/lichhoc.png"),
+    tenMonHoc: "DHKTPM 16B: Lập trình thuyết bị di động",
+    phong: "X13.04",
+    giangVien: "Nguyễn Trọng Tiến",
   },
 
 ];
 function ManHinhLichHoc({ navigation, route }) {
   const user = route.params.user
+  console.log(user);
   const Item = ({ title }) => (
     <View>
       <View style={styles.content2}>
@@ -69,7 +79,7 @@ function ManHinhLichHoc({ navigation, route }) {
       <View style={styles.header}>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate("Home");
+            navigation.navigate("ManHinhChinh", {user});
           }}
         >
           <Image

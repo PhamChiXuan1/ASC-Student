@@ -194,14 +194,14 @@ oTopContent3:{
     // borderWidth: "1px",
     // borderColor: "rgba(217, 217, 217, 1)",
     marginBottom: "20px",
-    left: "15px",
+   
     borderRadius: "2px",
 
 },
 
 oThongTin: {
     flexDirection: "row",
-    borderWidth: "1px",
+    borderTopWidth:"1px",
     borderColor: "rgba(217, 217, 217, 1)",
     borderRadius: "2px",
     height: "25px",

@@ -10,7 +10,15 @@ import {
 
 const dataMHLHLT = [
   {
-    thu: "Thứ 3 - 29/09/2023",
+    thu: "Thứ 2 - 28/08/2023",
+    tiet: "Tiết 7 - 9",
+    img: require("../assets/img/mhlhlt/lichthi.png"),
+    tenMonHoc: "DHKTPM16: Kiểm thử phần mềm",
+    phong: "H9.03",
+    giangVien: "Nguyễn Năm",
+  },
+  {
+    thu: "Thứ 3 - 29/08/2023",
     tiet: "    Tiết 10 - 12",
     img: require("../assets/img/mhlhlt/lichthi.png"),
     tenMonHoc: "DHKTPM 16B: Lập trình thuyết bị di động",
@@ -18,23 +26,17 @@ const dataMHLHLT = [
     giangVien: "Nguyễn Trọng Tiến",
   },
   {
-    thu: "Chủ nhật - 03/10/2023",
-    tiet: "Tiết 1 - 3",
+    thu: "Thứ 7 - 03/09/2023",
+    tiet: "Tiết 10 - 12",
     img: require("../assets/img/mhlhlt/lichthi.png"),
     tenMonHoc: "DHKTPM 16B: Lập trình WWW (Java)",
     phong: "XH8.03",
     giangVien: "Võ Văn Hải",
   },
-  {
-    tiet: "Tiết 7 - 9",
-    img: require("../assets/img/mhlhlt/lichthi.png"),
-    tenMonHoc: "DHKTPM16: Đảm bảo chất lượng và Kiểm" + "\n" + "thử phần mềm",
-    phong: "V11.04",
-    giangVien: "Nguyễn Năm",
-  },
+ 
 ];
 function ManHinhLichThi({ navigation, route }) {
-  const user = route.params.route
+  const user = route.params.user;
   const Item = ({ title }) => (
     <View>
       <View style={styles.content2}>
@@ -66,7 +68,7 @@ function ManHinhLichThi({ navigation, route }) {
       <View style={styles.header}>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate("Home");
+            navigation.navigate("ManHinhChinh", {user});
           }}
         >
           <Image

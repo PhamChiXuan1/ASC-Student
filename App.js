@@ -27,7 +27,7 @@ function App() {
         initialRouteName="ManDangnhap"
         screenOptions={{ headerShown: false }}
       >
-        <Stack.Screen name='Home' component={TabButton}/>
+        {/* <Stack.Screen name='Home' component={TabButton}/> */}
       <Stack.Screen name="ManHinhLichThi" component={ManHinhLichThi} />
         <Stack.Screen name="ManHinhLichHoc" component={ManHinhLichHoc} />
         <Stack.Screen name="ManHinhLHLThi" component={ManHinhLHLThi} />

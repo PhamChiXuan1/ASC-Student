@@ -82,7 +82,7 @@ function ManHinhLHLThi({ navigation, route }) {
         <Text style={styles.textC3}>{title.tiet}</Text>
       </View>
       <View style={styles.content4}>
-        {/* <Image style={styles.imgc4} source={title.img}></Image> */}
+        <Image style={styles.imgc4} source={title.imgKiHieu}></Image>
         <View style={styles.c4Text}>
           <Text style={styles.textC4}>{title.tenMonHoc}</Text>
           <View style={{ flexDirection: "row", top: "10px" }}>

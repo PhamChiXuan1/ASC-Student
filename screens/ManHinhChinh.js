@@ -13,15 +13,6 @@ import {
 import { useState, useEffect } from "react";
 function ManHinhChinh({ navigation, route }) {
   const user = route.params.user;
-  // const [data, setData] = useState([]);
-  // const apiUrl = "https://65538ffb5449cfda0f2ee69f.mockapi.io/user";
-  // useEffect(() => {
-  //   fetch(`${apiUrl}/${user.id}/lopHoc`)
-  //     .then((response) => response.json())
-  //     .then((json) => setData(json))
-  //     .catch((error) => console.error(error));
-  // }, []);
-
   console.log(user);
   // console.log(data);
   const carouselData = [
@@ -48,13 +39,19 @@ function ManHinhChinh({ navigation, route }) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text>{user.name}</Text>
+        <Text style={styles.textH}>Xin chào, {user.name}</Text>
+        <TouchableOpacity onPress={()=>{navigation.navigate('ManHinhNhacNho', {user})}}>
+          <Image
+            style={styles.imgh}
+            source={require("../assets/img/mhc/icons8-bell-48.png")}
+          ></Image>
+        </TouchableOpacity>
       </View>
       <View style={styles.menuHeader}>
         <TouchableOpacity
           style={{ flexDirection: "row", alignItems: "center" }}
           onPress={() => {
-            navigation.navigate(  'ManHinhLHLThi', {user});
+            navigation.navigate("ManHinhLHLThi", { user });
           }}
         >
           <View style={styles.circle}>
@@ -70,7 +67,7 @@ function ManHinhChinh({ navigation, route }) {
         <TouchableOpacity
           style={{ flexDirection: "row", alignItems: "center" }}
           onPress={() => {
-            navigation.navigate("ManXemDiem_TongQuan", {user});
+            navigation.navigate("ManXemDiem_TongQuan", { user });
           }}
         >
           <View style={styles.circle}>
@@ -87,7 +84,7 @@ function ManHinhChinh({ navigation, route }) {
         <View style={styles.content1}>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("ManThanhtich", {user});
+              navigation.navigate("ManThanhtich", { user });
             }}
           >
             <View style={styles.btnNN}>
@@ -101,7 +98,7 @@ function ManHinhChinh({ navigation, route }) {
 
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("ManPhieuThuTongHop", {user});
+              navigation.navigate("ManPhieuThuTongHop", { user });
             }}
           >
             <View style={styles.btnPT}>
@@ -115,7 +112,7 @@ function ManHinhChinh({ navigation, route }) {
 
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("ManHinhCongNo", {user});
+              navigation.navigate("ManHinhCongNo", { user });
             }}
           >
             <View style={styles.btnCN}>
@@ -151,7 +148,7 @@ function ManHinhChinh({ navigation, route }) {
         <View style={styles.content2}>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("ManChuongTrinhKhung" , {user});
+              navigation.navigate("ManChuongTrinhKhung", { user });
             }}
           >
             <View style={styles.btnCTK}>
@@ -165,7 +162,7 @@ function ManHinhChinh({ navigation, route }) {
 
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("ManHinhDoiMatKhau", {user});
+              navigation.navigate("ManHinhDoiMatKhau", { user });
             }}
           >
             <View style={styles.btnDMK}>
@@ -179,7 +176,7 @@ function ManHinhChinh({ navigation, route }) {
 
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("ManDiemRenLuyen", {user});
+              navigation.navigate("ManDiemRenLuyen", { user });
             }}
           >
             <View style={styles.btnDRL}>
@@ -204,7 +201,7 @@ function ManHinhChinh({ navigation, route }) {
 
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("ManThongKeDiemDanh", {user});
+              navigation.navigate("ManThongKeDiemDanh", { user });
             }}
           >
             <View style={styles.btnTKDD}>
@@ -289,7 +286,9 @@ function ManHinhChinh({ navigation, route }) {
       </View>
       <View style={styles.footer}>
         <View style={styles.trangChu}>
-          <TouchableOpacity onPress={()=>navigation.navigate("ManHinhChinh",{user})}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("ManHinhChinh", { user })}
+          >
             <Image
               source={require("../assets/img/mhnn/icon trang chủ.png")}
               style={styles.imgfooter}
@@ -299,7 +298,9 @@ function ManHinhChinh({ navigation, route }) {
         </View>
 
         <View style={styles.thongBao}>
-          <TouchableOpacity onPress={()=>navigation.navigate("ManHinhNhacNho",{user})}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("ManHinhNhacNho", { user })}
+          >
             <Image
               source={require("../assets/img/mhnn/icon chuông thông báo.png")}
               style={styles.imgfooter}
@@ -320,17 +321,31 @@ function ManHinhChinh({ navigation, route }) {
         </View>
 
         <View style={styles.gopY}>
-          <TouchableOpacity onPress={()=>{navigation.navigate('ManHinhGopY', {user})}}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("ManHinhGopY", { user });
+            }}
+          >
             <Image
               source={require("../assets/img/mhnn/icon góp ý.png")}
               style={styles.imgfooter}
             ></Image>
-            <Text style={styles.textFooter}>Góp ý</Text>
+            <Text style={{ 
+    fontFamily: "Poppins",
+    fontSize: "12px",
+    textAlign: "center",
+    top:'71px',
+    marginLeft:'-5px'
+  }}>Góp ý</Text>
           </TouchableOpacity>
         </View>
 
         <View style={styles.taiKhoan}>
-          <TouchableOpacity onPress={()=>{navigation.navigate('ManTaiKhoan', {user})}}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("ManTaiKhoan", { user });
+            }}
+          >
             <Image
               source={require("../assets/img/mhnn/user-alt.png")}
               style={styles.imgfooter}
@@ -338,7 +353,7 @@ function ManHinhChinh({ navigation, route }) {
             <Text style={styles.textFooter}>Tài khoản</Text>
           </TouchableOpacity>
         </View>
-      </View> 
+      </View>
     </View>
   );
 }
@@ -355,9 +370,27 @@ const styles = StyleSheet.create({
     // width: "360px",
     backgroundImage: "linear-gradient(to right, #1E90FF,#00BFFF)",
     borderBottomStartRadius: "20px",
-    borderBottomEndRadius: "20px",
+    borderBottomEndRadius: "16px",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent:'space-around'
   },
 
+  textH: {
+    fontFamily: "Poppins",
+    fontSize: "14px",
+    marginLeft: "12px",
+    marginTop: "5px",
+    color: "white",
+  },
+
+  imgh: {
+    height: "25px",
+    width: "31px",
+    resizeMode: "contain",
+    marginTop: "5px",
+    marginLeft: "140px",
+  },
   menuHeader: {
     flex: 1,
     height: "82px",
@@ -635,6 +668,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     top: "71px",
   },
+
 
   trangChu: {
     flex: 1,

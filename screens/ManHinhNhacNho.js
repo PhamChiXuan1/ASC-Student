@@ -12,7 +12,7 @@ function ManHinhNhacNho({navigation, route}) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => {"ManHinhChinh", {user}}}>
+        <TouchableOpacity onPress={() => {navigation.navigate("ManHinhChinh", {user})}}>
         <Image
           style={styles.img}
           source={require("../assets/img/mhnn/Frame 8.png")}
@@ -42,7 +42,7 @@ function ManHinhNhacNho({navigation, route}) {
         </View>
 
         <View style={styles.thongBao}>
-          <TouchableOpacity>
+          <TouchableOpacity >
             <Image
               source={require("../assets/img/mhnn/icon chuông thông báo.png")}
               style={styles.imgfooter}
@@ -68,12 +68,12 @@ function ManHinhNhacNho({navigation, route}) {
               source={require("../assets/img/mhnn/icon góp ý.png")}
               style={styles.imgfooter}
             ></Image>
-            <Text style={styles.textFooter}>Góp ý</Text>
+            <Text style={styles.textFooter1}>Góp ý</Text>
           </TouchableOpacity>
         </View>
 
         <View style={styles.taiKhoan}>
-          <TouchableOpacity onPress={()=>{'ManTaiKhoan', {user}}}>
+          <TouchableOpacity onPress={()=>{navigation.navigate('ManTaiKhoan', {user})}}>
             <Image
               source={require("../assets/img/mhnn/user-alt.png")}
               style={styles.imgfooter}
@@ -153,6 +153,14 @@ const styles = StyleSheet.create({
     top:'82px'
   },
 
+  textFooter1: {
+    fontFamily: "Poppins",
+    fontSize: "12px",
+    textAlign: "center",
+    top:'82px',
+    marginLeft:'-5px'
+  },
+  
   trangChu: {
     flex: 1,
   },

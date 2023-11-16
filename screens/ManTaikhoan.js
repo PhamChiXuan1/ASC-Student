@@ -14,64 +14,66 @@ function ManTaikhoan({navigation, route}) {
       <View style={styles.header}>
           <View style={styles.anhDaiDien}>
               <Text style={styles.textTTSV}>Thông tin sinh viên</Text>
-              <TouchableOpacity onPress={()=>{navigation.navigate('ManHinhChinh', {user})}}>
               <Image
                   style={styles.imgTTSV}
                   source={require("../assets/img/mhtk/Vector.png")}
               ></Image>
-              </TouchableOpacity>
           </View>
                    
       </View>
 
       <View style={styles.content}>
           <View style={styles.nhapThongTin}>
+          <View style={styles.oThongTin}>
+                  <Text style={styles.text}>Họ và tên: </Text>
+                  <Text style={styles.noiDungTrangThai}>{user.name}</Text>
+              </View>
               <View style={styles.oThongTin}>
                   <Text style={styles.text}>Trạng thái: </Text>
-                  <Text style={styles.noiDungTrangThai}>Đang học</Text>
+                  <Text style={styles.noiDungTrangThai}>{user.trangThai}</Text>
               </View>
               <View style={styles.oThongTin}>
                   <Text style={styles.text}>Giới tính: </Text>
-                  <Text style={styles.noiDungTrangThai}>Nam</Text>
+                  <Text style={styles.noiDungTrangThai}>{user.gioiTinh}</Text>
               </View>
               <View style={styles.oThongTin}>
                   <Text style={styles.text}>Ngày sinh: </Text>
-                  <Text style={styles.noiDungTrangThai}>06/11/2002</Text>
+                  <Text style={styles.noiDungTrangThai}>{user.ngaySinh}</Text>
               </View>
               <View style={styles.oThongTin}>
                   <Text style={styles.text}>MSSV: </Text>
-                  <Text style={styles.noiDungTrangThai}>20030131</Text>
+                  <Text style={styles.noiDungTrangThai}>{user.username}</Text>
               </View>
               <View style={styles.oThongTin}>
                   <Text style={styles.text}>Lớp: </Text>
-                  <Text style={styles.noiDungTrangThai}>DHKTPM16B</Text>
+                  <Text style={styles.noiDungTrangThai}>{user.lop}</Text>
               </View>
               <View style={styles.oThongTin}>
                   <Text style={styles.text}>Bậc đào tạo: </Text>
-                  <Text style={styles.noiDungTrangThai}>Đại Học</Text>
+                  <Text style={styles.noiDungTrangThai}>{user.bacDaoTao}  </Text>
               </View>
               <View style={styles.oThongTin}>
                   <Text style={styles.text}>Khoa: </Text>
-                  <Text style={styles.noiDungTrangThai}>Công Nghệ Thông Tin</Text>
+                  <Text style={styles.noiDungTrangThai}>{user.khoa}</Text>
               </View>
               <View style={styles.oThongTin}>
                   <Text style={styles.text}>Chuyên ngành: </Text>
-                  <Text style={styles.noiDungTrangThai}>Kỹ Thuật Phần Mềm</Text>
+                  <Text style={styles.noiDungTrangThai}>{user.chuyenNganh}</Text>
               </View>
               <View style={styles.oThongTin}>
                   <Text style={styles.text}>Địa chỉ: </Text>
-                  <Text style={styles.noiDungTrangThai}>12 Nguyễn Văn Bảo, p4, Gò Vấp</Text>
+                  <Text style={styles.noiDungTrangThai}>{user.diaChi}</Text>
               </View>
               <View style={styles.oThongTin}>
                   <Text style={styles.text}>Số điện thoại: </Text>
-                  <Text style={styles.noiDungTrangThai}>0983300988</Text>
+                  <Text style={styles.noiDungTrangThai}>{user.sdt}</Text>
               </View>
               <View style={styles.oThongTin}>
                   <Text style={styles.text}>Nơi sinh: </Text>
-                  <Text style={styles.noiDungTrangThai}>Bệnh viện đa khoa</Text>
+                  <Text style={styles.noiDungTrangThai}>{user.noiSinh}</Text>
               </View>
           </View>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>{navigation.navigate('ManDangnhap')}}>
               <View style={styles.btnContainer}>
                   <View style={styles.btn}>
                       <Text style={styles.btnText}>Đăng xuất</Text>
@@ -122,7 +124,7 @@ function ManTaikhoan({navigation, route}) {
               source={require("../assets/img/mhnn/icon góp ý.png")}
               style={styles.imgfooter}
             ></Image>
-            <Text style={styles.textFooter}>Góp ý</Text>
+            <Text style={styles.textFooter1}>Góp ý</Text>
           </TouchableOpacity>
         </View>
 
@@ -150,7 +152,7 @@ const styles = StyleSheet.create({
 
   header: {
     flex: 2,
-    height: "100px",
+    height: "130px",
     width: "360px",
     // backgroundColor: "rgba(62, 150, 231, 1)",
     backgroundImage: "linear-gradient(to right, #1E90FF,#00BFFF)",
@@ -177,21 +179,21 @@ const styles = StyleSheet.create({
       // borderWidth: "1px",
       // borderColor: "rgba(217, 217, 217, 1)",
       marginBottom: "20px",
-      left: "15px",
       borderRadius: "2px",
       
   },
 
   oThongTin: {
       flexDirection: "row",
-      borderWidth: "1px",
+      borderTopWidth:'1px',
       borderColor: "rgba(217, 217, 217, 1)",
       borderRadius: "2px",
       height: "25px",
       width: "330px",
       marginTop: "10px",
       alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+
   },
 
   anhDaiDien:{
@@ -205,6 +207,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignSelf: "center",
     top: "30px",
+    resizeMode:'contain',
   },
 
   textTTSV: {
@@ -223,9 +226,9 @@ const styles = StyleSheet.create({
       width: "330px",
       borderRadius: "3px",
       justifyContent: "center",
-      backgroundColor: "rgba(62, 150, 231, 1)",
+      backgroundImage: "linear-gradient(to right, #1E90FF,#00BFFF)",
       // left: "15px",
-      bottom: "20px"
+      marginTop:'10px'
     },
     btnText:{
       fontFamily: "Poppins",
@@ -237,6 +240,7 @@ const styles = StyleSheet.create({
     },
     noiDungTrangThai:{
       width: '230px',
+      marginLeft:'50px',
     },
     footer: {
       flex: 2,
@@ -252,6 +256,13 @@ const styles = StyleSheet.create({
       top:'61px'
     },
   
+    textFooter1: {
+      fontFamily: "Poppins",
+      fontSize: "12px",
+      textAlign: "center",
+      top:'71px',
+      marginLeft:'-5px'
+    },
     textFooter: {
       fontFamily: "Poppins",
       fontSize: "12px",

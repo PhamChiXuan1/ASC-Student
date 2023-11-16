@@ -5,11 +5,35 @@ import {
   TextInput,
   Image,
   TouchableOpacity,
+  ImageBackgroundComponent,
 } from "react-native";
-
+import { useState, useEffect } from "react";
 function ManHinhDoiMatKhau({ navigation, route }) {
   const user = route.params.user;
- 
+  const [userName, setUserName] = useState(user.password);
+    const [password, setPassword] = useState("");
+    const [eyeClick, setEyeClick] = useState(true);
+    const [eyeClick1, setEyeClick1] = useState(true);
+    const [eyeClick2, setEyeClick2] = useState(true);
+    const [data, setData] = useState([]);
+    const saveChanges = () => {
+      fetch(`https://65538ffb5449cfda0f2ee69f.mockapi.io/user/${user.id}`, {
+          method: 'PUT',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+              password: userName
+          }),
+      })
+      .then(data => {
+          navigation.navigate('ManDangnhap', {password: data} );
+      })
+      .catch(error => {
+          console.error('Error:', error);
+      });
+      console.log(password);
+  };
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -35,25 +59,34 @@ function ManHinhDoiMatKhau({ navigation, route }) {
         <View style={styles.textInputC}>
           <TextInput
             style={styles.textC}
-            placeholder="    Mật khẩu cũ: "
+            placeholder="    Mật khẩu cũ: " value={user.password} secureTextEntry={eyeClick}
           ></TextInput>
+          <TouchableOpacity onPress={()=>{setEyeClick(!eyeClick)}}>
+          <Image style={styles.imgt} source={require("../assets/img/mhdmk/eye 1.png")} />
+          </TouchableOpacity>
         </View>
 
         <View style={styles.textInput1C}>
           <TextInput
             style={styles.textC}
-            placeholder="   Mật khẩu mới: "
+            placeholder="   Mật khẩu mới: " onChangeText={setUserName} secureTextEntry={eyeClick1}
           ></TextInput>
+          <TouchableOpacity onPress={()=>{setEyeClick1(!eyeClick1)}}>
+          <Image style={styles.imgt} source={require("../assets/img/mhdmk/eye 1.png")} />
+          </TouchableOpacity>
         </View>
 
         <View style={styles.textInput2C}>
           <TextInput
             style={styles.textC}
-            placeholder="    Nhập lại mật khẩu mới: "
+            placeholder="    Nhập lại mật khẩu mới: " onChangeText={setUserName} secureTextEntry={eyeClick2}
           ></TextInput>
+          <TouchableOpacity onPress={()=>{setEyeClick2(!eyeClick2)}}>
+          <Image style={styles.imgt} source={require("../assets/img/mhdmk/eye 1.png")} />
+          </TouchableOpacity>
         </View>
 
-<View style={styles.footer}><TouchableOpacity style={styles.btn}>
+<View style={styles.footer}><TouchableOpacity style={styles.btn} onPress={saveChanges}>
             <Text style={styles.btnText}>Xác nhận</Text>
         </TouchableOpacity></View>
         
@@ -72,8 +105,16 @@ const styles = StyleSheet.create({
     // width: "360px",
   },
 
+  imgt:{
+    height:20,
+    width: 20,
+    resizeMode:'contain',
+    marginLeft:'130px',
+    position:'absolute',
+    marginTop:'-10px',
+  },
   header: {
-    flex: 1,
+    flex:2,
     height: "100px",
     // width: "360px",
     backgroundImage: "linear-gradient(to right, #1E90FF,#00BFFF)",
@@ -98,8 +139,8 @@ const styles = StyleSheet.create({
   },
 
   imgC: {
-    height: "218px",
-    width: "330px",
+    height: "200px",
+    width: "312px",
     resizeMode: "contain",
     left: "30px",
     top: "20px",
@@ -138,7 +179,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     alignSelf: "center",
-    top: "50px",
+    marginTop:'50px',
   },
 
   textC: {
@@ -156,7 +197,7 @@ const styles = StyleSheet.create({
     borderRadius: "3px",
     justifyContent: "center",
     backgroundImage: "linear-gradient(to right, #1E90FF,#00BFFF)",
-    top: "200px",
+   marginTop:'150px',
     alignSelf:'center'
   },
   btnText: {
@@ -169,7 +210,7 @@ const styles = StyleSheet.create({
   },
 
   footer:{
-    flex:1,
+    flex:2
 
   }
 });

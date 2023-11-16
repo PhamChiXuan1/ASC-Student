@@ -126,7 +126,7 @@ function ManHinhGopY({ navigation, route }) {
               source={require("../assets/img/mhnn/icon góp ý.png")}
               style={styles.imgfooter}
             ></Image>
-            <Text style={styles.textFooter}>Góp ý</Text>
+            <Text style={styles.textFooter1}>Góp ý</Text>
           </TouchableOpacity>
         </View>
 
@@ -278,7 +278,13 @@ const styles = StyleSheet.create({
     textAlign: "center",
     top: "82px",
   },
-
+  textFooter1: {
+    fontFamily: "Poppins",
+    fontSize: "12px",
+    textAlign: "center",
+    top:'82px',
+    marginLeft:'-5px'
+  },
   trangChu: {
     flex: 1,
   },
