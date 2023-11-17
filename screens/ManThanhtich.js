@@ -1,132 +1,174 @@
 import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  Image,
-  TouchableOpacity,
-} from "react-native";
+    StyleSheet,
+    Text,
+    View,
+    TextInput,
+    Image,
+    TouchableOpacity,
+    Modal
+  } from "react-native";
+
+  import {
+    BarChart,
+    LineChart
+  } from "react-native-chart-kit";
+
+  const MyBarChart1 = () => {
+    return (
+      <>
+        <Text style={{textAlign: 'center'}}>Điểm rèn luyện Năm học 2020-2021</Text>
+        <BarChart
+          data={{
+            labels: ['HK1(2020-2021)', 'HK2(2020-2021)'],
+            datasets: [
+              {
+                data: [72, 78],
+              },
+            ],
+          }}
+          width={Dimensions.get('window').width - 16}
+          height={220}
+          yAxisLabel={''}
+          chartConfig={{
+            backgroundColor: '#1cc910',
+            backgroundGradientFrom: '#eff3ff',
+            backgroundGradientTo: '#efefef',
+            decimalPlaces: 2,
+            color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+            style: {
+              borderRadius: 16,
+            },
+          }}
+          style={{
+            marginVertical: 8,
+            borderRadius: 16,
+          }}
+        />
+      </>
+    );
+  };
+
 
 import React from "react";
-import { 
-Menu,
-MenuOption,
-MenuOptions, 
-MenuProvider, 
-MenuTrigger 
-} from "react-native-popup-menu";
+import { useState } from "react";
 
-const ManThanhtich = ({navigation, route}) => {
-const user = route.params.user;
-return(
-      <MenuProvider style={styles.container}>
-      {/* <View style={styles.container}> */}
-        <View style={styles.header}>
-          <TouchableOpacity onPress={()=>{navigation.navigate('ManHinhChinh', {user})}}>
-          <Image
-            style={styles.img}
-            source={require("../assets/img/mhnn/Frame 8.png")}
-          ></Image>
-          </TouchableOpacity>
-          <Text style={styles.textTT}>Thành tích</Text>
-        
-        </View>
+import { ThanhTich1 } from "./ComponentThanhTich/ThanhTich1";
 
-        {/* <View style={styles.content}>
-          <View style={styles.chonHK}>
-            <TouchableOpacity style={{flexDirection: "row"}} onPress={navigation.navigate('AThuMenu')}>
-              <Text style={styles.textChonHK}>Chọn học kì</Text>
-              <Image
-                source={require('../assets/img/mhtt/Vector.png')}
-                style={{width: 12, height: 14, top: "3px", left: "5px"}}
-                resizeMode="contain"
-              />
-            </TouchableOpacity>
-          </View>
-        </View> */}
-      {/* </View> */}
-      {/* <View>
-        <Text>con heo</Text>  
-      </View>
-      <Text>hello</Text> */}
-
-    <View style={styles.content}>
-      <Menu onSelect={value => alert(`Học kì đã chọn là: học kì ${value}`)} style={styles.chonHK}>
-        <MenuTrigger text='Chọn học kì'/>
-          <Image
-            source={require('../assets/img/mhtt/VectorXuong.png')}
-            style={{width: 12, height: 14, top: "3px", left: "5px"}}
-            resizeMode="contain"
-          />
-        
-          <MenuOptions>
-            <MenuOption value={1} text='Học kì 1' style={styles.menuoption}/>
-            <MenuOption value={2} text='Học kì 2' style={styles.menuoption}/>
-            <MenuOption value={3} text='Học kì 3' style={styles.menuoption}/>
-            <MenuOption value={4} text='Học kì 4' style={styles.menuoption}/>
-            <MenuOption value={5} text='Học kì 5' style={styles.menuoption}/>
-            <MenuOption value={6} text='Học kì 6' style={styles.menuoption}/>
-            <MenuOption value={7} text='Học kì 7' style={styles.menuoption}/>
-            <MenuOption value={8} text='Học kì 8' style={styles.menuoption}/>
-            <MenuOption value={9} text='Học kì 9' style={styles.menuoption}/>
-          </MenuOptions>
-      </Menu>
-    </View>
-      </MenuProvider>
-
-);
-
-    }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    height: "800px",
-    width: "360px",
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+function ManThanhtich({navigation, route}){
+  const user = route.params.user;
+  const [chooseData, setChooseData]=useState('Chọn học kỳ');
+  const [isModalVisible, setIsModalVisible]=useState(false);
   
-  header: {
-    flex: 1,
-    height: "100px",
-    width: "360px",
-    backgroundImage: "linear-gradient(to right, #1E90FF, #00BFFF)",
-    flexDirection: "row",
-  },  
+  const changModalVisibility=(bool)=>{
+    setIsModalVisible(bool)
+  }
 
-  img: {
-    height: "46px",
-    width: "40px",
-    top: "15px",
-  },
+  const setData=(option)=>{
+    setChooseData(option)
+    
+  }
 
-  content:{
-    flex: 8,
-    alignItems: "center",
-  },
+ 
 
-  chonHK:{
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-    top: "10px",
-    borderWidth: "1px",
-    borderRadius: "20px",
-    width: "120px",
-    height: "25px",
-  },
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <TouchableOpacity onPress={()=>{navigation.navigate('ManHinhChinh',{user})}}>
+        <Image
+          style={styles.img}
+          source={require("../assets/img/mhnn/Frame 8.png")}
+        ></Image>
+         </TouchableOpacity>
+        <Text style={styles.textNN}>Thành tích</Text>
+      </View>
 
-  textTT:{
-    fontFamily: "Poppins",
-    fontSize: "16px",
-    color: "rgba(255, 255, 255, 1)",
-    top: "33px",
-    textAlign: "center",
-  },
+      <View style={styles.content}>
+        <View>
+          <TouchableOpacity 
+            onPress={()=>changModalVisibility(true)}
+            style={{flexDirection: 'row',borderRadius: '20px', borderWidth: '1px', borderColor: 'gray', width: '160px', height: '40px', justifyContent: 'space-evenly', alignItems: 'center', top: '10px'}}
+          >
+            <Text>{chooseData}</Text>
+            <Image
+              style={{height: '15px', width: '15px'}}
+              source={require("../assets/img/mhtt/VectorXuong.png")}
+              resizeMode="contain"
+            ></Image>
+          </TouchableOpacity>
+          <Modal
+            transparent={true}
+            animationType="fade"
+            visible={isModalVisible}
+            nRequestClose={()=>changModalVisibility(false)}
+          >
+            <ThanhTich1
+              changModalVisibility={changModalVisibility}
+              setData={setData}
+            />
+          </Modal>
+          {/* <MyBarChart1/> */}
+        </View>
+      </View>
+    </View>
+  );
+}
+  
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: "#fff",
+      height: "800px",
+      width: "360px",
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    
+    header: {
+      flex: 1,
+      height: "100px",
+      width: "360px",
+      backgroundImage: "linear-gradient(to right, #1E90FF, #00BFFF)",
+      flexDirection: "row",
+    },  
 
-  menuoption:{
-    alignItems:'center',
-  },
-});
+    img: {
+      height: "46px",
+      width: "40px",
+      top: "15px",
+    },
 
-export default ManThanhtich;
+    content:{
+      flex: 8,
+    },
+
+    chonHK:{
+      flexDirection: "row",
+      justifyContent: "space-evenly",
+      top: "10px",
+      borderWidth: "1px",
+      borderRadius: "20px",
+      width: "120px",
+      height: "25px",
+    },
+
+    textTT:{
+      fontFamily: "Poppins",
+      fontSize: "16px",
+      color: "rgba(255, 255, 255, 1)",
+      top: "33px",
+      textAlign: "center",
+    },
+
+    menuoption:{
+      alignItems:'center',
+    },
+    textNN: {
+      fontFamily: "Poppins",
+      fontSize: "16px",
+      color: "rgba(255, 255, 255, 1)",
+      top: "33px",
+      textAlign: "center",
+    },
+  });
+  
+  export default ManThanhtich;

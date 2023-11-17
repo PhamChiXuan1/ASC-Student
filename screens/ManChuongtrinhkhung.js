@@ -121,6 +121,22 @@ function ManChuongtrinhkhung({ navigation, route }) {
     setData(route.params.user.ctk);
 }, [route.params]);
   const [showContent, setShowContent] = useState(false);
+  const [showContent1, setShowContent1]=useState(false);
+  const [showContent2, setShowContent2]=useState(false);
+  const [showContent3, setShowContent3]=useState(false);
+  const [showContent4, setShowContent4]=useState(false);
+  const [showContent5, setShowContent5]=useState(false);
+
+  const Item=({item})=>{
+    return(
+      <View style={{flexDirection: 'row',}}>
+        <Text style={{width:'60px', textAlign: 'center', borderColor:'gray', borderWidth:'1px'}}>{item.maMonHoc}</Text>
+        <Text style={{width:'180px', textAlign: 'center', borderColor:'gray', borderWidth:'1px'}}>{item.tenMonHoc}</Text>
+        <Text style={{width:'20px', textAlign: 'center', borderColor:'gray', borderWidth:'1px'}}>{item.soTC}</Text>
+        <Text style={{width:'80px', textAlign: 'center', borderColor:'gray', borderWidth:'1px'}}>{item.trangThai}</Text>
+    </View>
+    )
+  }
 
   return (
     <View style={styles.container}>
@@ -139,141 +155,217 @@ function ManChuongtrinhkhung({ navigation, route }) {
       </View>
 
       <View style={styles.content}>
-        <FlatList
-          data={data}
-          renderItem={({ item }) => {
-            return (
-              <View style={{ flexDirection: "column" }}>
-                <TouchableOpacity
-                  onPress={() => setShowContent(!showContent)}
-                  style={styles.flatContent}
-                >
-                  <Text style={styles.txtFlat}>{item.tenHocKy}</Text>
-                  <View style={{ flexDirection: "row", alignItems: "center" }}>
-                    <Text style={styles.txtFlat}>--(TC:{item.soTinChi})</Text>
-                    <Image
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginLeft: "5px",
-                      }}
-                      source={require("../assets/img/mhtt/VectorXuong.png")}
-                      resizeMode="contain"
-                    ></Image>
-                  </View>
-                </TouchableOpacity>
-                {showContent && (
-                  <View
-                    style={{
-                      flexDirection: "column",
-                      borderColor: "gray",
-                      borderWidth: "1px",
-                      margin: "10px",
-                      marginTop: "-10px",
-                    }}
-                  >
-                    <View style={{ flexDirection: "row" }}>
-                      <Text
-                        style={{
-                          width: "60px",
-                          textAlign: "center",
-                          borderColor: "gray",
-                          borderWidth: "1px",
-                          backgroundColor: "rgba(62, 150, 231, 1)",
-                        }}
-                      >
-                        Mã Môn
-                      </Text>
-                      <Text
-                        style={{
-                          width: "180px",
-                          textAlign: "center",
-                          borderColor: "gray",
-                          borderWidth: "1px",
-                          backgroundColor: "rgba(62, 150, 231, 1)",
-                        }}
-                      >
-                        Tên Môn Học
-                      </Text>
-                      <Text
-                        style={{
-                          width: "20px",
-                          textAlign: "center",
-                          borderColor: "gray",
-                          borderWidth: "1px",
-                          backgroundColor: "rgba(62, 150, 231, 1)",
-                        }}
-                      >
-                        TC
-                      </Text>
-                      <Text
-                        style={{
-                          width: "80px",
-                          textAlign: "center",
-                          borderColor: "gray",
-                          borderWidth: "1px",
-                          backgroundColor: "rgba(62, 150, 231, 1)",
-                        }}
-                      >
-                        Trạng Thái
-                      </Text>
-                    </View>
-                    <FlatList
-                      data={data1}
-                      renderItem={({ item }) => {
-                        return (
-                          <View style={{ flexDirection: "row" }}>
-                            <Text
-                              style={{
-                                width: "60px",
-                                textAlign: "center",
-                                borderColor: "gray",
-                                borderWidth: "1px",
-                              }}
-                            >
-                              {item.maMonHoc}
-                            </Text>
-                            <Text
-                              style={{
-                                width: "180px",
-                                textAlign: "center",
-                                borderColor: "gray",
-                                borderWidth: "1px",
-                              }}
-                            >
-                              {item.tenMonHoc}
-                            </Text>
-                            <Text
-                              style={{
-                                width: "20px",
-                                textAlign: "center",
-                                borderColor: "gray",
-                                borderWidth: "1px",
-                              }}
-                            >
-                              {item.soTC}
-                            </Text>
-                            <Text
-                              style={{
-                                width: "80px",
-                                textAlign: "center",
-                                borderColor: "gray",
-                                borderWidth: "1px",
-                              }}
-                            >
-                              {item.trangThai}
-                            </Text>
+                  {/* <FlatList
+                    data={data}
+                    renderItem={({item})=>{
+                      return( */}
+                        <View style={{flexDirection:'column'}}>
+                        <TouchableOpacity 
+                          onPress={()=>setShowContent(!showContent)}
+                          style={styles.flatContent}
+                        > 
+                          <Text style={styles.txtFlat}>HK 1</Text>
+                          {/* <Text style={styles.txtFlat}>{item.tenHocKy}</Text> */}
+                          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                            <Text style={styles.txtFlat}>--(TC:15)</Text>
+                            {/* <Text style={styles.txtFlat}>--(TC:{item.soTinChi})</Text> */}
+                            <Image
+                              style={{height:'15px', width:'15px', marginLeft: '5px'}}
+                              source={require("../assets/img/mhtt/VectorXuong.png")}
+                              resizeMode="contain"
+                            ></Image>
                           </View>
-                        );
-                      }}
-                    />
-                  </View>
-                )}
-              </View>
-            );
-          }}
-        />
-      </View>
+                        </TouchableOpacity>
+                        {showContent && (
+                          <View style={{flexDirection: 'column', borderColor: 'gray', borderWidth: '1px', margin:'10px', marginTop:'-10px'}}>
+                              <View style={{flexDirection: 'row',}}>
+                                <Text style={{width:'60px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>Mã Môn</Text>
+                                <Text style={{width:'180px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>Tên Môn Học</Text>
+                                <Text style={{width:'20px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>TC</Text>
+                                <Text style={{width:'80px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>Trạng Thái</Text>
+                              </View>
+                              <FlatList
+                                data={data1}
+                                renderItem={Item}
+                                scrollEnabled={true}
+                              />
+                            </View>
+                        )}
+                        </View>
+
+                        <View style={{flexDirection:'column'}}>
+                        <TouchableOpacity 
+                          onPress={()=>setShowContent1(!showContent1)}
+                          style={styles.flatContent}
+                        > 
+                          <Text style={styles.txtFlat}>HK 2</Text>
+                          {/* <Text style={styles.txtFlat}>{item.tenHocKy}</Text> */}
+                          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                            <Text style={styles.txtFlat}>--(TC:13)</Text>
+                            {/* <Text style={styles.txtFlat}>--(TC:{item.soTinChi})</Text> */}
+                            <Image
+                              style={{height:'15px', width:'15px', marginLeft: '5px'}}
+                              source={require("../assets/img/mhtt/VectorXuong.png")}
+                              resizeMode="contain"
+                            ></Image>
+                          </View>
+                        </TouchableOpacity>
+                        {showContent1 && (
+                          <View style={{flexDirection: 'column', borderColor: 'gray', borderWidth: '1px', margin:'10px', marginTop:'-10px'}}>
+                              <View style={{flexDirection: 'row',}}>
+                                <Text style={{width:'60px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>Mã Môn</Text>
+                                <Text style={{width:'180px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>Tên Môn Học</Text>
+                                <Text style={{width:'20px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>TC</Text>
+                                <Text style={{width:'80px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>Trạng Thái</Text>
+                              </View>
+                              <FlatList
+                                data={data1}
+                                renderItem={Item}
+                                scrollEnabled={true}
+                              />
+                            </View>
+                        )}
+                        </View>
+
+                        <View style={{flexDirection:'column'}}>
+                        <TouchableOpacity 
+                          onPress={()=>setShowContent2(!showContent2)}
+                          style={styles.flatContent}
+                        > 
+                          <Text style={styles.txtFlat}>HK 3</Text>
+                          {/* <Text style={styles.txtFlat}>{item.tenHocKy}</Text> */}
+                          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                            <Text style={styles.txtFlat}>--(TC:16)</Text>
+                            {/* <Text style={styles.txtFlat}>--(TC:{item.soTinChi})</Text> */}
+                            <Image
+                              style={{height:'15px', width:'15px', marginLeft: '5px'}}
+                              source={require("../assets/img/mhtt/VectorXuong.png")}
+                              resizeMode="contain"
+                            ></Image>
+                          </View>
+                        </TouchableOpacity>
+                        {showContent2 && (
+                          <View style={{flexDirection: 'column', borderColor: 'gray', borderWidth: '1px', margin:'10px', marginTop:'-10px'}}>
+                              <View style={{flexDirection: 'row',}}>
+                                <Text style={{width:'60px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>Mã Môn</Text>
+                                <Text style={{width:'180px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>Tên Môn Học</Text>
+                                <Text style={{width:'20px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>TC</Text>
+                                <Text style={{width:'80px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>Trạng Thái</Text>
+                              </View>
+                              <FlatList
+                                data={data1}
+                                renderItem={Item}
+                                scrollEnabled={true}
+                              />
+                            </View>
+                        )}
+                        </View>
+
+                        <View style={{flexDirection:'column'}}>
+                        <TouchableOpacity 
+                          onPress={()=>setShowContent3(!showContent3)}
+                          style={styles.flatContent}
+                        > 
+                          <Text style={styles.txtFlat}>HK 4</Text>
+                          {/* <Text style={styles.txtFlat}>{item.tenHocKy}</Text> */}
+                          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                            <Text style={styles.txtFlat}>--(TC:15)</Text>
+                            {/* <Text style={styles.txtFlat}>--(TC:{item.soTinChi})</Text> */}
+                            <Image
+                              style={{height:'15px', width:'15px', marginLeft: '5px'}}
+                              source={require("../assets/img/mhtt/VectorXuong.png")}
+                              resizeMode="contain"
+                            ></Image>
+                          </View>
+                        </TouchableOpacity>
+                        {showContent3 && (
+                          <View style={{flexDirection: 'column', borderColor: 'gray', borderWidth: '1px', margin:'10px', marginTop:'-10px'}}>
+                              <View style={{flexDirection: 'row',}}>
+                                <Text style={{width:'60px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>Mã Môn</Text>
+                                <Text style={{width:'180px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>Tên Môn Học</Text>
+                                <Text style={{width:'20px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>TC</Text>
+                                <Text style={{width:'80px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>Trạng Thái</Text>
+                              </View>
+                              <FlatList
+                                data={data1}
+                                renderItem={Item}
+                                scrollEnabled={true}
+                              />
+                            </View>
+                        )}
+                        </View>
+
+                        <View style={{flexDirection:'column'}}>
+                        <TouchableOpacity 
+                          onPress={()=>setShowContent4(!showContent4)}
+                          style={styles.flatContent}
+                        > 
+                          <Text style={styles.txtFlat}>HK 5</Text>
+                          {/* <Text style={styles.txtFlat}>{item.tenHocKy}</Text> */}
+                          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                            <Text style={styles.txtFlat}>--(TC:13)</Text>
+                            {/* <Text style={styles.txtFlat}>--(TC:{item.soTinChi})</Text> */}
+                            <Image
+                              style={{height:'15px', width:'15px', marginLeft: '5px'}}
+                              source={require("../assets/img/mhtt/VectorXuong.png")}
+                              resizeMode="contain"
+                            ></Image>
+                          </View>
+                        </TouchableOpacity>
+                        {showContent4 && (
+                          <View style={{flexDirection: 'column', borderColor: 'gray', borderWidth: '1px', margin:'10px', marginTop:'-10px'}}>
+                              <View style={{flexDirection: 'row',}}>
+                                <Text style={{width:'60px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>Mã Môn</Text>
+                                <Text style={{width:'180px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>Tên Môn Học</Text>
+                                <Text style={{width:'20px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>TC</Text>
+                                <Text style={{width:'80px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>Trạng Thái</Text>
+                              </View>
+                              <FlatList
+                                data={data1}
+                                renderItem={Item}
+                                scrollEnabled={true}
+                              />
+                            </View>
+                        )}
+                        </View>
+
+                        <View style={{flexDirection:'column'}}>
+                        <TouchableOpacity 
+                          onPress={()=>setShowContent5(!showContent5)}
+                          style={styles.flatContent}
+                        > 
+                          <Text style={styles.txtFlat}>HK 6</Text>
+                          {/* <Text style={styles.txtFlat}>{item.tenHocKy}</Text> */}
+                          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                            <Text style={styles.txtFlat}>--(TC:17)</Text>
+                            {/* <Text style={styles.txtFlat}>--(TC:{item.soTinChi})</Text> */}
+                            <Image
+                              style={{height:'15px', width:'15px', marginLeft: '5px'}}
+                              source={require("../assets/img/mhtt/VectorXuong.png")}
+                              resizeMode="contain"
+                            ></Image>
+                          </View>
+                        </TouchableOpacity>
+                        {showContent5 && (
+                          <View style={{flexDirection: 'column', borderColor: 'gray', borderWidth: '1px', margin:'10px', marginTop:'-10px'}}>
+                              <View style={{flexDirection: 'row',}}>
+                                <Text style={{width:'60px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>Mã Môn</Text>
+                                <Text style={{width:'180px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>Tên Môn Học</Text>
+                                <Text style={{width:'20px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>TC</Text>
+                                <Text style={{width:'80px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>Trạng Thái</Text>
+                              </View>
+                              <FlatList
+                                data={data1}
+                                renderItem={Item}
+                                scrollEnabled={true}
+                              />
+                            </View>
+                        )}
+                        </View>
+                      {/* )
+                    }}
+                  /> */}
+                </View>
     </View>
   );
 }

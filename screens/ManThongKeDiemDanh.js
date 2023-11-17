@@ -8,7 +8,7 @@ import {
   Modal,
   FlatList
 } from "react-native";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const dataHK = [
 {
@@ -63,7 +63,28 @@ const dataMH = [
 
 function ManThongKeDiemDanh({navigation, route}) {
   const user = route.params.user;
+  var [data1, setData] = useState([]);
+  useEffect(() => {
+    setData(route.params.user.dd);
+}, [route.params]);
   const [showContent, setShowContent]=useState(false);
+  const [showContent1, setShowContent1]=useState(false);
+  const [showContent2, setShowContent2]=useState(false);
+  const [showContent3, setShowContent3]=useState(false);
+  const [showContent4, setShowContent4]=useState(false);
+  const [showContent5, setShowContent5]=useState(false);
+
+  const Item=({item})=>{
+    return(
+      <View style={{flexDirection: 'row',}}>
+        <Text style={{width:'60px', textAlign: 'center', borderColor:'gray', borderWidth:'1px'}}>{item.maMonHoc}</Text>
+        <Text style={{width:'180px', textAlign: 'center', borderColor:'gray', borderWidth:'1px'}}>{item.tenMonHoc}</Text>
+        <Text style={{width:'50px', textAlign: 'center', borderColor:'gray', borderWidth:'1px'}}>{item.dvht}</Text>
+        <Text style={{width:'35px', textAlign: 'center', borderColor:'gray', borderWidth:'1px'}}>{item.cp}</Text>
+        <Text style={{width:'35px', textAlign: 'center', borderColor:'gray', borderWidth:'1px'}}>{item.kp}</Text>
+      </View>
+    )
+  }
 
   return (
     <View style={styles.container}>
@@ -86,16 +107,16 @@ function ManThongKeDiemDanh({navigation, route}) {
           <Text style={{width:'35px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>CP</Text>
           <Text style={{width:'35px', textAlign: 'center', borderColor:'gray', borderWidth:'1px',backgroundColor: "rgba(62, 150, 231, 1)",}}>KP</Text>
           </View>
-      <FlatList
+      {/* <FlatList
                   data={dataHK}
                   renderItem={({item})=>{
-                    return(
+                    return( */}
                       <View style={{flexDirection:'column'}}>
                       <TouchableOpacity 
                         onPress={()=>setShowContent(!showContent)}              
                         style={styles.flatContent}
                       > 
-                        <Text style={styles.txtFlat}>{item.tenHK}</Text>
+                        <Text style={styles.txtFlat}>HK 1</Text>
                         <View style={{flexDirection: 'row', alignItems: 'center'}}>
                           <Image
                             style={{height:'15px', width:'15px', marginLeft: '5px'}}
@@ -107,26 +128,142 @@ function ManThongKeDiemDanh({navigation, route}) {
                       {showContent && (
                       <View style={{flexDirection: 'column', borderColor: 'gray', borderWidth: '1px', marginTop:'-10px'}}>
                           <FlatList
-                            data={dataMH}
-                            renderItem={({item})=>{
-                              return(
-                                <View style={{flexDirection: 'row',}}>
-                                  <Text style={{width:'60px', textAlign: 'center', borderColor:'gray', borderWidth:'1px'}}>{item.maMonHoc}</Text>
-                                  <Text style={{width:'180px', textAlign: 'center', borderColor:'gray', borderWidth:'1px'}}>{item.tenMonHoc}</Text>
-                                  <Text style={{width:'50px', textAlign: 'center', borderColor:'gray', borderWidth:'1px'}}>{item.dvht}</Text>
-                                  <Text style={{width:'35px', textAlign: 'center', borderColor:'gray', borderWidth:'1px'}}>{item.cp}</Text>
-                                  <Text style={{width:'35px', textAlign: 'center', borderColor:'gray', borderWidth:'1px'}}>{item.kp}</Text>
-                              </View>
-                              )
-                            }}
+                            data={data1}
+                            renderItem={Item}
+                            scrollEnabled={true}
                           />
                         </View>
                        )}
 
                       </View>
-                    )
+                      <View style={{flexDirection:'column'}}>
+                      <TouchableOpacity 
+                        onPress={()=>setShowContent1(!showContent1)}              
+                        style={styles.flatContent}
+                      > 
+                        <Text style={styles.txtFlat}>HK 2</Text>
+                        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                          <Image
+                            style={{height:'15px', width:'15px', marginLeft: '5px'}}
+                            source={require("../assets/img/mhtt/VectorXuong.png")}
+                            resizeMode="contain"
+                          ></Image>
+                        </View>
+                      </TouchableOpacity>
+                      {showContent1 && (
+                      <View style={{flexDirection: 'column', borderColor: 'gray', borderWidth: '1px', marginTop:'-10px'}}>
+                          <FlatList
+                            data={data1}
+                            renderItem={Item}
+                            scrollEnabled={true}
+                          />
+                        </View>
+                       )}
+
+                      </View>
+                      <View style={{flexDirection:'column'}}>
+                      <TouchableOpacity 
+                        onPress={()=>setShowContent2(!showContent2)}              
+                        style={styles.flatContent}
+                      > 
+                        <Text style={styles.txtFlat}>HK 3</Text>
+                        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                          <Image
+                            style={{height:'15px', width:'15px', marginLeft: '5px'}}
+                            source={require("../assets/img/mhtt/VectorXuong.png")}
+                            resizeMode="contain"
+                          ></Image>
+                        </View>
+                      </TouchableOpacity>
+                      {showContent2 && (
+                      <View style={{flexDirection: 'column', borderColor: 'gray', borderWidth: '1px', marginTop:'-10px'}}>
+                          <FlatList
+                            data={data1}
+                            renderItem={Item}
+                            scrollEnabled={true}
+                          />
+                        </View>
+                       )}
+
+                      </View>
+                      <View style={{flexDirection:'column'}}>
+                      <TouchableOpacity 
+                        onPress={()=>setShowContent3(!showContent3)}              
+                        style={styles.flatContent}
+                      > 
+                        <Text style={styles.txtFlat}>HK 4</Text>
+                        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                          <Image
+                            style={{height:'15px', width:'15px', marginLeft: '5px'}}
+                            source={require("../assets/img/mhtt/VectorXuong.png")}
+                            resizeMode="contain"
+                          ></Image>
+                        </View>
+                      </TouchableOpacity>
+                      {showContent3 && (
+                      <View style={{flexDirection: 'column', borderColor: 'gray', borderWidth: '1px', marginTop:'-10px'}}>
+                          <FlatList
+                            data={data1}
+                            renderItem={Item}
+                            scrollEnabled={true}
+                          />
+                        </View>
+                       )}
+
+                      </View>
+                      <View style={{flexDirection:'column'}}>
+                      <TouchableOpacity 
+                        onPress={()=>setShowContent4(!showContent4)}              
+                        style={styles.flatContent}
+                      > 
+                        <Text style={styles.txtFlat}>HK 5</Text>
+                        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                          <Image
+                            style={{height:'15px', width:'15px', marginLeft: '5px'}}
+                            source={require("../assets/img/mhtt/VectorXuong.png")}
+                            resizeMode="contain"
+                          ></Image>
+                        </View>
+                      </TouchableOpacity>
+                      {showContent4 && (
+                      <View style={{flexDirection: 'column', borderColor: 'gray', borderWidth: '1px', marginTop:'-10px'}}>
+                          <FlatList
+                            data={data1}
+                            renderItem={Item}
+                            scrollEnabled={true}
+                          />
+                        </View>
+                       )}
+
+                      </View>
+                      <View style={{flexDirection:'column'}}>
+                      <TouchableOpacity 
+                        onPress={()=>setShowContent5(!showContent5)}              
+                        style={styles.flatContent}
+                      > 
+                        <Text style={styles.txtFlat}>HK 6</Text>
+                        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                          <Image
+                            style={{height:'15px', width:'15px', marginLeft: '5px'}}
+                            source={require("../assets/img/mhtt/VectorXuong.png")}
+                            resizeMode="contain"
+                          ></Image>
+                        </View>
+                      </TouchableOpacity>
+                      {showContent5 && (
+                      <View style={{flexDirection: 'column', borderColor: 'gray', borderWidth: '1px', marginTop:'-10px'}}>
+                          <FlatList
+                            data={data1}
+                            renderItem={Item}
+                            scrollEnabled={true}
+                          />
+                        </View>
+                       )}
+
+                      </View>
+                    {/* )
                   }}
-                />           
+                />            */}
 
               
       </View>

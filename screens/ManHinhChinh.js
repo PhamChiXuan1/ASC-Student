@@ -124,7 +124,7 @@ function ManHinhChinh({ navigation, route }) {
             <Text style={styles.textContent}>Công nợ</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>{navigation.navigate('ManTinTuc', {user})}}>
             <View style={styles.btnTT}>
               <Image
                 style={styles.imgContent}

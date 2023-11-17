@@ -80,7 +80,8 @@ import { useFocusEffect } from "@react-navigation/native";
             </View>
             
             <View style={styles.input}>
-                <TextInput  secureTextEntry
+                <TextInput  
+                    secureTextEntry
                     placeholder="  Nhập mật khẩu"
                     
                     style={{   height: "44px",
