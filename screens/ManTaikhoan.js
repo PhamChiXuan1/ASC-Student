@@ -6,7 +6,7 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-
+import { Avatar } from "react-native-elements";
 function ManTaikhoan({navigation, route}) {
   const user = route.params.user;
   return (
@@ -18,6 +18,8 @@ function ManTaikhoan({navigation, route}) {
                   style={styles.imgTTSV}
                   source={require("../assets/img/mhtk/Vector.png")}
               ></Image>
+
+        
           </View>
                    
       </View>

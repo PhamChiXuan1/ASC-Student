@@ -10,6 +10,7 @@ import {
 import { useState, useEffect } from "react";
 function ManHinhDoiMatKhau({ navigation, route }) {
   const user = route.params.user;
+  const [tb, setTb] = useState("");
   const [userName, setUserName] = useState(user.password);
     const [password, setPassword] = useState("");
     const [eyeClick, setEyeClick] = useState(true);
@@ -27,13 +28,22 @@ function ManHinhDoiMatKhau({ navigation, route }) {
           }),
       })
       .then(data => {
+          setTb("");
           navigation.navigate('ManDangnhap', {password: data} );
       })
       .catch(error => {
+        setTb("Đổi mật khẩu không thành công!");
           console.error('Error:', error);
       });
       console.log(password);
   };
+
+  // if(saveChanges){
+  //   setTb("");
+  // }
+  // else{
+  //   setTb("Đổi mật khẩu không thành công!");
+  // }
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -86,12 +96,13 @@ function ManHinhDoiMatKhau({ navigation, route }) {
           </TouchableOpacity>
         </View>
 
+        <View><Text>{tb}</Text></View>
+
 <View style={styles.footer}><TouchableOpacity style={styles.btn} onPress={saveChanges}>
             <Text style={styles.btnText}>Xác nhận</Text>
         </TouchableOpacity></View>
         
       </View>
-
       <View style={{ flex: 1 }}></View>
     </View>
   );
@@ -114,7 +125,7 @@ const styles = StyleSheet.create({
     marginTop:'-10px',
   },
   header: {
-    flex:2,
+    flex:1,
     height: "100px",
     // width: "360px",
     backgroundImage: "linear-gradient(to right, #1E90FF,#00BFFF)",
@@ -210,7 +221,7 @@ const styles = StyleSheet.create({
   },
 
   footer:{
-    flex:2
+    flex:3
 
   }
 });

@@ -243,8 +243,8 @@ function ManHinhChinh({ navigation, route }) {
                     shadowOpacity: 0.25,
                     shadowRadius: 3.84,
                     elevation: 5,
-
-                    // borderBottomWidth:"0.5",
+                    borderColor:'gray',
+                    borderBottomWidth:'0.5px',
                     marginRight: "5px",
                     marginLeft: "20px",
                   }}

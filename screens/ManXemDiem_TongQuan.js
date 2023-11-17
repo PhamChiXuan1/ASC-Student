@@ -11,7 +11,7 @@ import {
 const data = [
 
 ]
-
+// console.log(user.hk);
 function ManXemDiem_TongQuan({navigation, route}) {
   const user = route.params.user;
   return (
@@ -35,7 +35,7 @@ function ManXemDiem_TongQuan({navigation, route}) {
           <TouchableOpacity style={styles.oTopContent2} onPress={()=>{navigation.navigate('ManXemDiem_TKHK', {user})}}>
               <Text style={styles.txtTopContent}>Tổng kết học kì</Text>
           </TouchableOpacity>
-
+              
           <TouchableOpacity style={styles.oTopContent3} onPress={()=>{navigation.navigate('ManXemDiem_ChiTiet', {user})}}>
               <Text style={styles.txtTopContent}>Chi tiết</Text>
           </TouchableOpacity>
@@ -45,15 +45,15 @@ function ManXemDiem_TongQuan({navigation, route}) {
         <View style={styles.nhapThongTin}>
               <View style={styles.oThongTin}>
                   <Text style={styles.text}>Sinh Viên Năm: </Text>
-                  <Text style={styles.noiDungTrangThai}>3</Text>
+                  <Text style={styles.noiDungTrangThai}>{user.sinhVienNam}</Text>
               </View>
               <View style={styles.oThongTin}>
                   <Text style={styles.text}>Niên Khóa: </Text>
-                  <Text style={styles.noiDungTrangThai}>2020-2024</Text>
+                  <Text style={styles.noiDungTrangThai}>{user.nienKhoa}</Text>
               </View>
               <View style={styles.oThongTin}>
                   <Text style={styles.text}>Thời Gian Đào Tạo: </Text>
-                  <Text style={styles.noiDungTrangThai}>4.0 năm</Text>
+                  <Text style={styles.noiDungTrangThai}>{user.tgDaoTao}</Text>
               </View>
               <View style={styles.oThongTin}>
                   <Text style={styles.text}>GVCN: </Text>
@@ -73,11 +73,11 @@ function ManXemDiem_TongQuan({navigation, route}) {
               </View>
               <View style={styles.oThongTin}>
                   <Text style={styles.text}>TBC Tích Lũy(4): </Text>
-                  <Text style={styles.noiDungTrangThai}>2.70</Text>
+                  <Text style={styles.noiDungTrangThai}>{user.tbTichLy4}</Text>
               </View>
               <View style={styles.oThongTin}>
                   <Text style={styles.text}>TBC Tích Lũy(10): </Text>
-                  <Text style={styles.noiDungTrangThai}>6.90</Text>
+                  <Text style={styles.noiDungTrangThai}>{user.tbTichLy10}</Text>
               </View>
               <View style={styles.oThongTin}>
                   <Text style={styles.text}>TC nợ(Điểm F-tỉ lệ %): </Text>
@@ -85,15 +85,15 @@ function ManXemDiem_TongQuan({navigation, route}) {
               </View>
               <View style={styles.oThongTin}>
                   <Text style={styles.text}>TC đã đăng kí: </Text>
-                  <Text style={styles.noiDungTrangThai}>133</Text>
+                  <Text style={styles.noiDungTrangThai}>{user.tcDaDK}</Text>
               </View>
               <View style={styles.oThongTin}>
                   <Text style={styles.text}>TC tích lũy: </Text>
-                  <Text style={styles.noiDungTrangThai}>102</Text>
+                  <Text style={styles.noiDungTrangThai}>{user.tcTichLuy}</Text>
               </View>
               <View style={styles.oThongTin}>
                   <Text style={styles.text}>TC phải tích lũy: </Text>
-                  <Text style={styles.noiDungTrangThai}>138</Text>
+                  <Text style={styles.noiDungTrangThai}>{user.tcPLT}</Text>
               </View>
               <View style={styles.oThongTin}>
                   <Text style={styles.text}>TC nợ: </Text>
