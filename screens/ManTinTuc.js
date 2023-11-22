@@ -123,7 +123,6 @@ const data=[
     header: {
       flex: 1,
       height: "100px",
-   
       // backgroundColor: "rgba(62, 150, 231, 1)",
       backgroundImage: "linear-gradient(to right, #1E90FF,#00BFFF)",
       flexDirection: "row",

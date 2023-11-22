@@ -6,16 +6,16 @@ import {
     LineChart
   } from "react-native-chart-kit";
 
-  const MyBarChart1 = () => {
+  const BarChartHK1 = () => {
     return (
       <>
-        <Text style={{textAlign: 'center'}}>Điểm rèn luyện Năm học 2020-2021</Text>
+        <Text style={{textAlign: 'center'}}></Text>
         <BarChart
           data={{
-            labels: ['HK1(2020-2021)', 'HK2(2020-2021)'],
+            labels: ['NMTH', 'NMLT', 'KNLVN','Triết học', 'TCC 1'],
             datasets: [
               {
-                data: [72, 78],
+                data: [7.2, 7.8, 8.1, 6.0, 8.5],
               },
             ],
           }}

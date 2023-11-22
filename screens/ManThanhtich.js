@@ -5,7 +5,8 @@ import {
     TextInput,
     Image,
     TouchableOpacity,
-    Modal
+    Modal,
+    Dimensions
   } from "react-native";
 
   import {
@@ -13,16 +14,17 @@ import {
     LineChart
   } from "react-native-chart-kit";
 
-  const MyBarChart1 = () => {
+  const BarChartHK1 = () => {
     return (
       <>
-        <Text style={{textAlign: 'center'}}>Điểm rèn luyện Năm học 2020-2021</Text>
+        <Text style={{textAlign: 'center'}}></Text>
+        {/* <Text style={{textAlign: 'center'}}>Thành tích học kì 1 2020-2021</Text> */}
         <BarChart
           data={{
-            labels: ['HK1(2020-2021)', 'HK2(2020-2021)'],
+            labels: ['NMTH', 'NMLT', 'KNLVN','Triết học', 'TCC 1'],
             datasets: [
               {
-                data: [72, 78],
+                data: [7.2, 7.8, 8.1, 6.0, 8.5],
               },
             ],
           }}
@@ -56,7 +58,7 @@ import { ThanhTich1 } from "./ComponentThanhTich/ThanhTich1";
 
 function ManThanhtich({navigation, route}){
   const user = route.params.user;
-  const [chooseData, setChooseData]=useState('Chọn học kỳ');
+  const [chooseData, setChooseData]=useState('HK 1 2020-2021');
   const [isModalVisible, setIsModalVisible]=useState(false);
   
   const changModalVisibility=(bool)=>{
@@ -81,19 +83,24 @@ function ManThanhtich({navigation, route}){
          </TouchableOpacity>
         <Text style={styles.textNN}>Thành tích</Text>
       </View>
-
+{/* w: 160, h: 40 */}
       <View style={styles.content}>
         <View>
           <TouchableOpacity 
             onPress={()=>changModalVisibility(true)}
-            style={{flexDirection: 'row',borderRadius: '20px', borderWidth: '1px', borderColor: 'gray', width: '160px', height: '40px', justifyContent: 'space-evenly', alignItems: 'center', top: '10px'}}
+            style={{flexDirection: 'column', width: '330px', height: '400px', justifyContent: 'space-evenly', alignItems: 'center', top: '10px'}}
           >
-            <Text>{chooseData}</Text>
-            <Image
-              style={{height: '15px', width: '15px'}}
-              source={require("../assets/img/mhtt/VectorXuong.png")}
-              resizeMode="contain"
-            ></Image>
+            <View style={{flexDirection: 'row', borderRadius: '20px', borderWidth: '1px', borderColor: 'gray', height: '40px', width: '160px', justifyContent: 'space-evenly', alignItems: 'center',}}>
+              <Text>{chooseData}</Text>
+              <Image
+                style={{height: '15px', width: '15px'}}
+                source={require("../assets/img/mhtt/VectorXuong.png")}
+                resizeMode="contain"
+              ></Image>
+            </View>
+            <View>
+              <BarChartHK1/>
+            </View>
           </TouchableOpacity>
           <Modal
             transparent={true}
@@ -106,7 +113,9 @@ function ManThanhtich({navigation, route}){
               setData={setData}
             />
           </Modal>
-          {/* <MyBarChart1/> */}
+        </View>
+        <View>
+          {/* <BarChartHK1/> */}
         </View>
       </View>
     </View>

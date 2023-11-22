@@ -84,7 +84,8 @@ function ManHinhChinh({ navigation, route }) {
         <View style={styles.content1}>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("ManThanhtich", { user });
+              // navigation.navigate("ManThanhtich", { user });
+              navigation.navigate("ManThanhTich_BieuDo", {user});
             }}
           >
             <View style={styles.btnNN}>

@@ -58,6 +58,55 @@ const Database = [
     khauTru: "0",
     congNo: "0",
   },
+  {
+    id:7,
+    monHoc: "Toán cao cấp 1",
+    hocPhi: "1.220.000",
+    daNop: "1.220.000",
+    khauTru: "0",
+    congNo: "0",
+  },
+  {
+    id: 8,
+    monHoc: "Giáo dục thể chất 1",
+    hocPhi: "2.440.000",
+    daNop: "2.440.000",
+    khauTru: "0",
+    congNo: "0",
+  },
+  {
+    id: 9,
+    monHoc: "Triết học Mác - Lênin 1",
+    hocPhi: "1.220.000",
+    daNop: "1.220.000",
+    khauTru: "0",
+    congNo: "0",
+  },
+  {
+    id: 10,
+    monHoc: "Kỹ năng làm việc nhóm",
+    hocPhi: "1.220.000",
+    daNop: "1.220.000",
+    khauTru: "0",
+    congNo: "0",
+  },
+  {
+    id: 11,
+    monHoc: "Nhập môn tin học",
+    hocPhi: "1.220.000",
+    daNop: "1.220.000",
+    khauTru: "0",
+    congNo: "0",
+  },
+
+  {
+    id: 12,
+    monHoc: "Nhập môn lập trình",
+    hocPhi: "1.960.000",
+    daNop: "1.960.000",
+    khauTru: "0",
+    congNo: "0",
+  },
 ];
 function MannHinhCongNo({ navigation, route }) {
   const user = route.params.user
@@ -78,15 +127,15 @@ function MannHinhCongNo({ navigation, route }) {
           <Text style={styles.textNN}>Công nợ</Text>
         </View>
 
-        <View style={styles.header1}>
+        {/* <View style={styles.header1}>
           <View style={styles.btnH1}>
-            <Text style={styles.textH1}>Chọn học kỳ</Text>
+            <Text style={styles.textH1}>Học kì 1(2020-2021)</Text>
             <Image
               style={styles.imgH1}
               source={require("../assets/img/mhcn/Vector.png")}
             ></Image>
           </View>
-        </View>
+        </View> */}
         <View>
           <View style={styles.header2}>
             <Text style={styles.textH2}>Mức học phí</Text>
@@ -129,8 +178,8 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    flex: 2,
-    height: "200px",
+    // flex: 2,
+    height: "100px",
     backgroundImage: "linear-gradient(to right, #1E90FF,#00BFFF)",
     // flexDirection: "row",
   },
@@ -155,8 +204,8 @@ const styles = StyleSheet.create({
     marginLeft: "20px",
   },
   btnH1: {
-    height: "37px",
-    width: "138px",
+    height: "40px",
+    width: "180px",
     backgroundColor: "#00ddff",
     shadowColor: "#000",
     shadowOffset: {
