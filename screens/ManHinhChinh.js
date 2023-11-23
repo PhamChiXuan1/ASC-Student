@@ -15,6 +15,9 @@ function ManHinhChinh({ navigation, route }) {
   const user = route.params.user;
   console.log(user);
   // console.log(data);
+
+  var [color, setColor]=useState(1);
+
   const carouselData = [
     {
       id: "01",
@@ -288,25 +291,30 @@ function ManHinhChinh({ navigation, route }) {
       <View style={styles.footer}>
         <View style={styles.trangChu}>
           <TouchableOpacity
-            onPress={() => navigation.navigate("ManHinhChinh", { user })}
+            onPress={() => 
+              {navigation.navigate("ManHinhChinh", { user });
+              setColor(1);}}
+
           >
             <Image
               source={require("../assets/img/mhnn/icon trang chủ.png")}
               style={styles.imgfooter}
             ></Image>
-            <Text style={styles.textFooter}>Trang chủ</Text>
+            <Text style={[styles.textFooter,color == 1 ? { color: "rgba(62, 150, 231, 1)" } : null]}>Trang chủ</Text>
           </TouchableOpacity>
         </View>
 
         <View style={styles.thongBao}>
           <TouchableOpacity
-            onPress={() => navigation.navigate("ManHinhNhacNho", { user })}
+            onPress={() => {
+              navigation.navigate("ManHinhNhacNho", { user });
+              setColor(1);}}
           >
             <Image
               source={require("../assets/img/mhnn/icon chuông thông báo.png")}
               style={styles.imgfooter}
             ></Image>
-            <Text style={styles.textFooter}>Nhắc nhở</Text>
+            <Text style={[styles.textFooter]}>Nhắc nhở</Text>
           </TouchableOpacity>
         </View>
 
@@ -324,34 +332,36 @@ function ManHinhChinh({ navigation, route }) {
         <View style={styles.gopY}>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("ManHinhGopY", { user });
+              {navigation.navigate("ManHinhGopY", { user });
+               setColor(1);
+              }
             }}
           >
             <Image
               source={require("../assets/img/mhnn/icon góp ý.png")}
               style={styles.imgfooter}
             ></Image>
-            <Text style={{ 
+            <Text style={[{ 
     fontFamily: "Poppins",
     fontSize: "12px",
     textAlign: "center",
     top:'71px',
     marginLeft:'-5px'
-  }}>Góp ý</Text>
+  },color == 3 ? { backgroundColor: "rgba(62, 150, 231, 1)" } : null]}>Góp ý</Text>
           </TouchableOpacity>
         </View>
 
         <View style={styles.taiKhoan}>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("ManTaiKhoan", { user });
+              {navigation.navigate("ManTaiKhoan", { user });setColor(1);}
             }}
           >
             <Image
               source={require("../assets/img/mhnn/user-alt.png")}
               style={styles.imgfooter}
             ></Image>
-            <Text style={styles.textFooter}>Tài khoản</Text>
+            <Text style={[styles.textFooter,color == 4 ? { color: "rgba(62, 150, 231, 1)" } : null]}>Tài khoản</Text>
           </TouchableOpacity>
         </View>
       </View>

@@ -7,8 +7,11 @@ import {
   TouchableOpacity,
 } from "react-native";
 
+import { useState } from "react";
+
 function ManHinhGopY({ navigation, route }) {
   const user = route.params.user;
+  var [color, setColor]=useState(3);
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -119,14 +122,16 @@ function ManHinhGopY({ navigation, route }) {
         <View style={styles.gopY}>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("ManHinhGopY", {user});
+              {navigation.navigate("ManHinhGopY", {user});
+              setColor(3);
+            }
             }}
           >
             <Image
               source={require("../assets/img/mhnn/icon góp ý.png")}
               style={styles.imgfooter}
             ></Image>
-            <Text style={styles.textFooter1}>Góp ý</Text>
+            <Text style={[styles.textFooter1,color == 3 ? { color: "rgba(62, 150, 231, 1)"} : null]}>Góp ý</Text>
           </TouchableOpacity>
         </View>
 

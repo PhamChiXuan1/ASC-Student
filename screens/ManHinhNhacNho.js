@@ -6,9 +6,12 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
+import { useState } from "react";
 
 function ManHinhNhacNho({navigation, route}) {
   const user = route.params.user;
+  var [color, setColor]=useState(2);
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -47,7 +50,7 @@ function ManHinhNhacNho({navigation, route}) {
               source={require("../assets/img/mhnn/icon chuông thông báo.png")}
               style={styles.imgfooter}
             ></Image>
-            <Text style={styles.textFooter}>Nhắc nhở</Text>
+            <Text style={[styles.textFooter,color == 2 ? { color: "rgba(62, 150, 231, 1)" } : null]}>Nhắc nhở</Text>
           </TouchableOpacity>
         </View>
 

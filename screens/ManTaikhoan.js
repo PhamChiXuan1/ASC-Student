@@ -7,8 +7,10 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Avatar } from "react-native-elements";
+import { useState } from "react";
 function ManTaikhoan({ navigation, route }) {
   const user = route.params.user;
+  var [color, setColor]=useState(4);
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -149,13 +151,14 @@ function ManTaikhoan({ navigation, route }) {
           <TouchableOpacity
             onPress={() => {
               navigation.navigate("ManTaiKhoan", { user });
+              setColor(4);
             }}
           >
             <Image
               source={require("../assets/img/mhnn/user-alt.png")}
               style={styles.imgfooter}
             ></Image>
-            <Text style={styles.textFooter}>Tài khoản</Text>
+            <Text style={[styles.textFooter,color == 4 ? { color: "rgba(62, 150, 231, 1)"} : null]}>Tài khoản</Text>
           </TouchableOpacity>
         </View>
       </View>
