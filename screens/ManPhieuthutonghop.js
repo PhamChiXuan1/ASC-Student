@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   FlatList
 } from "react-native";
-
+import { useState, useEffect } from "react";
 const data=[
   {
     sophieu:'724002',
@@ -73,6 +73,11 @@ const data=[
 
 function ManPhieuThuTongHop({navigation, route}) {
   const user = route.params.user
+  var [data1, setData] = useState([]);
+  useEffect(() => {
+    setData(route.params.user.phieuThu);
+}, [route.params]);
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -88,7 +93,7 @@ function ManPhieuThuTongHop({navigation, route}) {
 
       <View style={styles.content}>
         <FlatList
-          data={data}
+          data={data1}
           renderItem={({item})=>{
             return (
               <View style={{borderRadius:'10px', borderWidth:'1px', color: 'gray', margin: '10px', height: '150px',shadowOffset:{width:'-2px',height:'4px'},shadowColor:'gray'}}>
