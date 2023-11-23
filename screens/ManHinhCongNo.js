@@ -6,7 +6,9 @@ import {
   Image,
   TouchableOpacity,
   FlatList,
+  ScrollView
 } from "react-native";
+import { useState, useEffect } from "react";
 
 const Database = [
   {
@@ -110,6 +112,11 @@ const Database = [
 ];
 function MannHinhCongNo({ navigation, route }) {
   const user = route.params.user
+  var [data1, setData] = useState([]);
+  useEffect(() => {
+    setData(route.params.user.cn);
+}, [route.params]);
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -148,7 +155,7 @@ function MannHinhCongNo({ navigation, route }) {
       <View style={styles.content}>
         <View>
           <FlatList
-            data={Database}
+            data={data1}
             renderItem={({ item }) => {
               return (
                 <View>
@@ -166,7 +173,12 @@ function MannHinhCongNo({ navigation, route }) {
             }}
           />
         </View>
+        <View style={{height:"40px", width: '330px', justifyContent: 'space-around', flexDirection: 'row'}}>
+        <Text style={{fontSize: '20px', fontWeight: 'bold'}}>Tổng công nợ</Text>
+        <Text style={{fontSize: '20px', fontWeight: 'bold', color: 'red'}}>0</Text>
       </View>
+      </View>
+      
     </View>
   );
 }
