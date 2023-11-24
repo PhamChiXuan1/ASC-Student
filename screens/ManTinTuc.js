@@ -7,6 +7,7 @@ import {
     TouchableOpacity,
     FlatList,
   } from "react-native";
+  import { useState } from "react";
   
 const data=[
     {
@@ -14,59 +15,70 @@ const data=[
         noiDungChinh: 'Thông báo V/v tiếp tục nghỉ học đối với học sinh và sinh viên để phòng chống dịch bệnh viêm đường hô hấp do chủng mới của virus corona gây ra',
         ngayDang: '13-02-2020',
         noiDungChiTiet: 'Thông báo V/v tiếp tục nghỉ học đối với học sinh và sinh viên để phòng chống dịch bệnh viêm đường hô hấp do chủng mới của virus corona gây ra, Thông báo V/v tiếp tục nghỉ học đối với học sinh và sinh viên để phòng chống dịch bệnh viêm đường hô hấp do chủng mới của virus corona gây ra, Thông báo V/v tiếp tục nghỉ học đối với học sinh và sinh viên để phòng chống dịch bệnh viêm đường hô hấp do chủng mới của virus corona gây ra, Thông báo V/v tiếp tục nghỉ học đối với học sinh và sinh viên để phòng chống dịch bệnh viêm đường hô hấp do chủng mới của virus corona gây ra',
+        type: 'nhacnho',
     },
     {
         imgTinTuc: require("../assets/hinh2.jpg"),
         noiDungChinh: 'Thông báo V/v tiếp tục nghỉ học đối với học sinh và sinh viên để phòng chống dịch bệnh viêm đường hô hấp do chủng mới của virus corona gây ra',
         ngayDang: '13-02-2020',
         noiDungChiTiet: 'Thông báo V/v tiếp tục nghỉ học đối với học sinh và sinh viên để phòng chống dịch bệnh viêm đường hô hấp do chủng mới của virus corona gây ra, Thông báo V/v tiếp tục nghỉ học đối với học sinh và sinh viên để phòng chống dịch bệnh viêm đường hô hấp do chủng mới của virus corona gây ra',
+        type: 'nhacnho',
     },
     {
         imgTinTuc: require("../assets/hinh3.jpg"),
         noiDungChinh: 'Thông báo V/v tiếp tục nghỉ học đối với học sinh và sinh viên để phòng chống dịch bệnh viêm đường hô hấp do chủng mới của virus corona gây ra',
         ngayDang: '13-02-2020',
         noiDungChiTiet: 'Thông báo V/v tiếp tục nghỉ học đối với học sinh và sinh viên để phòng chống dịch bệnh viêm đường hô hấp do chủng mới của virus corona gây ra, Thông báo V/v tiếp tục nghỉ học đối với học sinh và sinh viên để phòng chống dịch bệnh viêm đường hô hấp do chủng mới của virus corona gây ra',
+        type: 'nhacnho',
     },
     {
         imgTinTuc: require("../assets/hinh1.jpg"),
         noiDungChinh: 'Hội thảo quốc tế tự chủ tài chính trong trường Đại học, kinh Nghiệm quốc tế và ứng dụng vào Việt Nam',
         ngayDang: '01-04-2020',
         noiDungChiTiet: 'Thông báo V/v tiếp tục nghỉ học đối với học sinh và sinh viên để phòng chống dịch bệnh viêm đường hô hấp do chủng mới của virus corona gây ra, Thông báo V/v tiếp tục nghỉ học đối với học sinh và sinh viên để phòng chống dịch bệnh viêm đường hô hấp do chủng mới của virus corona gây ra',
+        type: 'tintuc',
     },
     {
         imgTinTuc: require("../assets/hinh2.jpg"),
         noiDungChinh: 'IUH đón nhận chứng nhận 4 chương trình đạt chuẩn AUN-QA và gặp mặt truyền thống nhân ngày Nhà giáo Việt Nam 20-11',
         ngayDang: '01-04-2020',
         noiDungChiTiet: 'Thông báo V/v tiếp tục nghỉ học đối với học sinh và sinh viên để phòng chống dịch bệnh viêm đường hô hấp do chủng mới của virus corona gây ra, Thông báo V/v tiếp tục nghỉ học đối với học sinh và sinh viên để phòng chống dịch bệnh viêm đường hô hấp do chủng mới của virus corona gây ra',
+        type: 'tintuc',
     },
     {
         imgTinTuc: require("../assets/hinh3.jpg"),
         noiDungChinh: 'IUH đón nhận chứng nhận 4 chương trình đạt chuẩn AUN-QA và gặp mặt truyền thống nhân ngày Nhà giáo Việt Nam 20-11',
         ngayDang: '01-04-2020',
         noiDungChiTiet: 'Thông báo V/v tiếp tục nghỉ học đối với học sinh và sinh viên để phòng chống dịch bệnh viêm đường hô hấp do chủng mới của virus corona gây ra, Thông báo V/v tiếp tục nghỉ học đối với học sinh và sinh viên để phòng chống dịch bệnh viêm đường hô hấp do chủng mới của virus corona gây ra',
+        type: 'tintuc',
     },
     {
         imgTinTuc: require("../assets/hinh1.jpg"),
         noiDungChinh: 'IUH đón nhận chứng nhận 4 chương trình đạt chuẩn AUN-QA và gặp mặt truyền thống nhân ngày Nhà giáo Việt Nam 20-11',
         ngayDang: '01-04-2020',
         noiDungChiTiet: 'Thông báo V/v tiếp tục nghỉ học đối với học sinh và sinh viên để phòng chống dịch bệnh viêm đường hô hấp do chủng mới của virus corona gây ra, Thông báo V/v tiếp tục nghỉ học đối với học sinh và sinh viên để phòng chống dịch bệnh viêm đường hô hấp do chủng mới của virus corona gây ra',
+        type: 'tintuc',
     },
     {
         imgTinTuc: require("../assets/hinh2.jpg"),
         noiDungChinh: 'IUH đón nhận chứng nhận 4 chương trình đạt chuẩn AUN-QA và gặp mặt truyền thống nhân ngày Nhà giáo Việt Nam 20-11',
         ngayDang: '01-04-2020',
         noiDungChiTiet: 'Thông báo V/v tiếp tục nghỉ học đối với học sinh và sinh viên để phòng chống dịch bệnh viêm đường hô hấp do chủng mới của virus corona gây ra, Thông báo V/v tiếp tục nghỉ học đối với học sinh và sinh viên để phòng chống dịch bệnh viêm đường hô hấp do chủng mới của virus corona gây ra',
+        type: 'tintuc',
     },
     {
         imgTinTuc: require("../assets/hinh3.jpg"),
         noiDungChinh: 'IUH đón nhận chứng nhận 4 chương trình đạt chuẩn AUN-QA và gặp mặt truyền thống nhân ngày Nhà giáo Việt Nam 20-11',
         ngayDang: '01-04-2020',
         noiDungChiTiet: 'Thông báo V/v tiếp tục nghỉ học đối với học sinh và sinh viên để phòng chống dịch bệnh viêm đường hô hấp do chủng mới của virus corona gây ra, Thông báo V/v tiếp tục nghỉ học đối với học sinh và sinh viên để phòng chống dịch bệnh viêm đường hô hấp do chủng mới của virus corona gây ra',
+        type: 'tintuc',
     },
 ]
 
   function ManTinTuc({navigation, route}) {
     const user = route.params.user;
+    const [state, setState] = useState(data);
+    var [color, setcolor] = useState(1);
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -79,10 +91,67 @@ const data=[
           <Text style={styles.textNN}>Tin tức</Text>
          
         </View>
+        <View style={{flexDirection: 'row', justifyContent: 'space-evenly', height: '35px', alignItems: 'center'}}>
+        <TouchableOpacity
+          style={[
+            { backgroundColor: "white", width: null, width: "101px",
+            height: "25px",
+            borderRadius: "5px",
+            borderWidth: "1px",
+          },
+            color == 1 ? { backgroundImage: "linear-gradient(to right, #1E90FF,#00BFFF)" } : null,
+          ]}
+            onPress={() => {
+              setState(data);
+              setcolor(1);
+            }}
+          >
+            <Text style={{textAlign: 'center', }}>Tất cả</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              { backgroundColor: "white", width: null, width: "101px",
+              height: "25px",
+              borderRadius: "5px",
+              borderWidth: "1px",
+            },
+              color == 2 ? { backgroundImage: "linear-gradient(to right, #1E90FF,#00BFFF)" } : null,
+            ]}
+            onPress={() => {
+              const newArr = data.filter((item) => {
+                return item.type == "tintuc";
+              });
+              setState(newArr);
+              setcolor(2);
+            }}
+          >
+            <Text style={{textAlign: 'center',}}>Tin tức-sự kiện</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              { backgroundColor: "white", width: null, width: "101px",
+              height: "25px",
+              borderRadius: "5px",
+              borderWidth: "1px",          
+            },
+              color == 3 ? { backgroundImage: "linear-gradient(to right, #1E90FF,#00BFFF)" } : null,
+            ]}
+            onPress={() => {
+              const newArr = data.filter((item) => {
+                return item.type == "nhacnho";
+              });
+              setState(newArr);
+              setcolor(3);
+            }}
+          >
+            <Text style={{textAlign: 'center', }}>Nhắc nhở</Text>
+          </TouchableOpacity>
+          
+        </View>
   
         <View style={styles.content}>
           <FlatList
-            data={data}
+            data={state}
             renderItem={({item})=>{
                 return(
                     <View>

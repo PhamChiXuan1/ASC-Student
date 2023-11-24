@@ -6,7 +6,6 @@ import ManHinhLichHoc from "./screens/ManHinhLichHoc";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ManDangnhap from "./screens/ManDangnhap";
-import ManThanhtich from "./screens/ManThanhtich";
 import ManTaikhoan from "./screens/ManTaikhoan";
 import ManHinhDoiMatKhau from "./screens/ManHinhDoiMatKhau";
 import ManHinhGopY from "./screens/ManHinhGopYPhanHoi";
@@ -34,7 +33,6 @@ function App() {
         <Stack.Screen name="ManHinhLichHoc" component={ManHinhLichHoc} />
         <Stack.Screen name="ManHinhLHLThi" component={ManHinhLHLThi} />
         <Stack.Screen name="ManHinhChinh" component={ManHinhChinh} />
-        <Stack.Screen name="ManThanhtich" component={ManThanhtich}/>
         <Stack.Screen name="ManDangnhap" component={ManDangnhap}/>
         <Stack.Screen name="ManHinhDoiMatKhau" component={ManHinhDoiMatKhau}/>
         <Stack.Screen name="ManHinhGopY" component={ManHinhGopY}/>

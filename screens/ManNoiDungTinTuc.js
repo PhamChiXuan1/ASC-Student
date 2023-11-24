@@ -75,7 +75,7 @@ import {
     },[]);
     const getChiTiet=()=>{
         for (let i = 0; i< data.length; i++){
-            if(data[i].user === user){
+            if(data[i].id === id){
                 setChiTiet(data[i]);
             }
         }
@@ -90,7 +90,7 @@ import {
             source={require("../assets/img/mhnn/Frame 8.png")}
           ></Image>
            </TouchableOpacity>
-          <Text style={styles.textNN}>Nội dung đầy đủ</Text>
+          <Text style={styles.textNN}>Nội dung chi tiết</Text>
          
         </View>
   
@@ -118,7 +118,6 @@ import {
     header: {
       flex: 1,
       height: "100px",
-   
       // backgroundColor: "rgba(62, 150, 231, 1)",
       backgroundImage: "linear-gradient(to right, #1E90FF,#00BFFF)",
       flexDirection: "row",
