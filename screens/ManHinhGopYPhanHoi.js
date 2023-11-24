@@ -6,11 +6,16 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-
+import { AntDesign } from "@expo/vector-icons";
 import { useState } from "react";
 
 function ManHinhGopY({ navigation, route }) {
   const user = route.params.user;
+  const [tenTruong, setTentruong] = useState("");
+  const [hoTen, setHoten] = useState("");
+  const [email, setEmail] = useState("");
+  const [soDT, setSoDT] = useState("");
+  const [noiDung, setNoiDung] = useState("");
   var [color, setColor]=useState(3);
   return (
     <View style={styles.container}>
@@ -45,7 +50,7 @@ function ManHinhGopY({ navigation, route }) {
             <Text style={styles.text1content1}>(*)</Text>
           </View>
           <View style={styles.textI}>
-            <TextInput style={styles.textIn}></TextInput>
+            <TextInput style={styles.textIn} ></TextInput>
           </View>
 
           <View style={styles.content1}>
@@ -53,7 +58,7 @@ function ManHinhGopY({ navigation, route }) {
             <Text style={styles.text1content1}>(*)</Text>
           </View>
           <View style={styles.textI}>
-            <TextInput style={styles.textIn}></TextInput>
+            <TextInput style={styles.textIn} ></TextInput>
           </View>
 
           <View style={styles.content1}>
@@ -61,7 +66,7 @@ function ManHinhGopY({ navigation, route }) {
             <Text style={styles.text1content1}>(*)</Text>
           </View>
           <View style={styles.textI}>
-            <TextInput style={styles.textIn}></TextInput>
+            <TextInput style={styles.textIn} ></TextInput>
           </View>
 
           <View style={styles.content1}>
@@ -74,10 +79,10 @@ function ManHinhGopY({ navigation, route }) {
 
           <View style={styles.content1}>
             <Text style={styles.textcontent1}>Nhập nội dung </Text>
-            <Text style={styles.text1content1}>(*)</Text>
+            <Text style={styles.text1content1} >(*)</Text>
           </View>
           <View style={styles.textI}>
-            <TextInput style={styles.textIn}></TextInput>
+            <TextInput style={styles.textIn} ></TextInput>
           </View>
         </View>
 
@@ -90,20 +95,22 @@ function ManHinhGopY({ navigation, route }) {
       <View style={styles.footer}>
         <View style={styles.trangChu}>
           <TouchableOpacity onPress={() => navigation.navigate("ManHinhChinh", {user})}>
-            <Image
+            {/* <Image
               source={require("../assets/img/mhnn/icon trang chủ.png")}
               style={styles.imgfooter}
-            ></Image>
+            ></Image> */}
+            <AntDesign name="home" size={23} style={styles.iFooter}></AntDesign>
             <Text style={styles.textFooter}>Trang chủ</Text>
           </TouchableOpacity>
         </View>
 
         <View style={styles.thongBao}>
           <TouchableOpacity onPress={()=>{navigation.navigate('ManHinhNhacNho', {user})}}>
-            <Image
+            {/* <Image
               source={require("../assets/img/mhnn/icon chuông thông báo.png")}
               style={styles.imgfooter}
-            ></Image>
+            ></Image> */}
+            <AntDesign name="bells" size={23} style={styles.iFooter}></AntDesign>
             <Text style={styles.textFooter}>Nhắc nhở</Text>
           </TouchableOpacity>
         </View>
@@ -127,20 +134,22 @@ function ManHinhGopY({ navigation, route }) {
             }
             }}
           >
-            <Image
+            {/* <Image
               source={require("../assets/img/mhnn/icon góp ý.png")}
               style={styles.imgfooter}
-            ></Image>
+            ></Image> */}
+            <AntDesign name="message1" size={23} style={[styles.iFooter,color == 3 ? { color: "rgba(62, 150, 231, 1)"} : null]}></AntDesign>
             <Text style={[styles.textFooter1,color == 3 ? { color: "rgba(62, 150, 231, 1)"} : null]}>Góp ý</Text>
           </TouchableOpacity>
         </View>
 
         <View style={styles.taiKhoan}>
           <TouchableOpacity onPress={()=>{navigation.navigate('ManTaiKhoan', {user})}}>
-            <Image
+            {/* <Image
               source={require("../assets/img/mhnn/user-alt.png")}
               style={styles.imgfooter}
-            ></Image>
+            ></Image> */}
+            <AntDesign name="user" size={23} style={styles.iFooter}></AntDesign>
             <Text style={styles.textFooter}>Tài khoản</Text>
           </TouchableOpacity>
         </View>
@@ -275,6 +284,12 @@ const styles = StyleSheet.create({
     left: "20px",
     resizeMode: "contain",
     top: "72px",
+  },
+  iFooter: {
+    left: "22px",
+    top:'72px',
+    height: "19px",
+    width: "25px",
   },
 
   textFooter: {

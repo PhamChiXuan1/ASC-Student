@@ -15,7 +15,6 @@ import ManChuongtrinhkhung from "./screens/ManChuongtrinhkhung";
 import ManXemDiem_ChiTiet from "./screens/ManXemdiem_chitiet";
 import ManXemDiem_TongQuan from "./screens/ManXemDiem_TongQuan";
 import ManXemDiem_TKHK from "./screens/ManXemDiem_TKHK";
-import TabButton from "./tabButton/TabButton";
 import ManPhieuThuTongHop from "./screens/ManPhieuthutonghop";
 import ManDiemRenLuyen from "./screens/ManDiemrenluyen";
 import ManThongKeDiemDanh from "./screens/ManThongKeDiemDanh";

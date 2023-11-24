@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 import { Avatar } from "react-native-elements";
 import { useState } from "react";
 function ManTaikhoan({ navigation, route }) {
@@ -100,10 +101,11 @@ function ManTaikhoan({ navigation, route }) {
               navigation.navigate("ManHinhChinh", { user });
             }}
           >
-            <Image
+            {/* <Image
               source={require("../assets/img/mhnn/icon trang chủ.png")}
               style={styles.imgfooter}
-            ></Image>
+            ></Image> */}
+            <AntDesign name="home" size={23} style={styles.iFooter}></AntDesign>
             <Text style={styles.textFooter}>Trang chủ</Text>
           </TouchableOpacity>
         </View>
@@ -114,10 +116,11 @@ function ManTaikhoan({ navigation, route }) {
               navigation.navigate("ManHinhNhacNho", { user });
             }}
           >
-            <Image
+            {/* <Image
               source={require("../assets/img/mhnn/icon chuông thông báo.png")}
               style={styles.imgfooter}
-            ></Image>
+            ></Image> */}
+            <AntDesign name="bells" size={23} style={styles.iFooter}></AntDesign>
             <Text style={styles.textFooter}>Nhắc nhở</Text>
           </TouchableOpacity>
         </View>
@@ -139,10 +142,11 @@ function ManTaikhoan({ navigation, route }) {
               navigation.navigate("ManHinhGopY", { user });
             }}
           >
-            <Image
+            {/* <Image
               source={require("../assets/img/mhnn/icon góp ý.png")}
               style={styles.imgfooter}
-            ></Image>
+            ></Image> */}
+            <AntDesign name="message1" size={23} style={styles.iFooter}></AntDesign>
             <Text style={styles.textFooter1}>Góp ý</Text>
           </TouchableOpacity>
         </View>
@@ -154,10 +158,11 @@ function ManTaikhoan({ navigation, route }) {
               setColor(4);
             }}
           >
-            <Image
+            {/* <Image
               source={require("../assets/img/mhnn/user-alt.png")}
               style={styles.imgfooter}
-            ></Image>
+            ></Image> */}
+            <AntDesign name="user" size={23} style={[styles.iFooter,color == 4 ? { color: "rgba(62, 150, 231, 1)"} : null]}></AntDesign>
             <Text style={[styles.textFooter,color == 4 ? { color: "rgba(62, 150, 231, 1)"} : null]}>Tài khoản</Text>
           </TouchableOpacity>
         </View>
@@ -276,6 +281,13 @@ const styles = StyleSheet.create({
     left: "20px",
     resizeMode: "contain",
     top: "61px",
+  },
+  
+  iFooter: {
+    left: "22px",
+    top: "61px",
+    height: "19px",
+    width: "25px",
   },
 
   textFooter1: {

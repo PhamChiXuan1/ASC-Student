@@ -11,6 +11,8 @@ import {
   ScrollView,
 } from "react-native";
 import { useState, useEffect } from "react";
+import Icon from "react-native-vector-icons/AntDesign";
+import { AntDesign } from "@expo/vector-icons";
 function ManHinhChinh({ navigation, route }) {
   const user = route.params.user;
   console.log(user);
@@ -171,7 +173,7 @@ function ManHinhChinh({ navigation, route }) {
           >
             <View style={styles.btnDMK}>
               <Image
-                style={styles.imgContent}
+                style={styles.imgContent3}
                 source={require("../assets/img/mhc/iconBLock.png")}
               ></Image>
             </View>
@@ -185,7 +187,7 @@ function ManHinhChinh({ navigation, route }) {
           >
             <View style={styles.btnDRL}>
               <Image
-                style={styles.imgContent}
+                style={styles.imgContent2}
                 source={require("../assets/img/mhc/iconDRL.png")}
               ></Image>
             </View>
@@ -210,7 +212,7 @@ function ManHinhChinh({ navigation, route }) {
           >
             <View style={styles.btnTKDD}>
               <Image
-                style={styles.imgContent}
+                style={styles.imgContent5}
                 source={require("../assets/img/mhc/iconDiemDanh.png")}
               ></Image>
             </View>
@@ -296,10 +298,11 @@ function ManHinhChinh({ navigation, route }) {
               setColor(1);}}
 
           >
-            <Image
+            <AntDesign name="home" size={23} style={[styles.iFooter,color == 1 ? { color: "rgba(62, 150, 231, 1)" } : null]}></AntDesign>
+            {/* <Image
               source={require("../assets/img/mhnn/icon trang chủ.png")}
               style={styles.imgfooter}
-            ></Image>
+            ></Image> */}
             <Text style={[styles.textFooter,color == 1 ? { color: "rgba(62, 150, 231, 1)" } : null]}>Trang chủ</Text>
           </TouchableOpacity>
         </View>
@@ -310,10 +313,11 @@ function ManHinhChinh({ navigation, route }) {
               navigation.navigate("ManHinhNhacNho", { user });
               setColor(1);}}
           >
-            <Image
+            <AntDesign name="bells" size={23} style={styles.iFooter}></AntDesign>
+            {/* <Image
               source={require("../assets/img/mhnn/icon chuông thông báo.png")}
               style={styles.imgfooter}
-            ></Image>
+            ></Image> */}
             <Text style={[styles.textFooter]}>Nhắc nhở</Text>
           </TouchableOpacity>
         </View>
@@ -337,10 +341,11 @@ function ManHinhChinh({ navigation, route }) {
               }
             }}
           >
-            <Image
+            <AntDesign name="message1" size={23} style={styles.iFooter}></AntDesign>
+            {/* <Image
               source={require("../assets/img/mhnn/icon góp ý.png")}
               style={styles.imgfooter}
-            ></Image>
+            ></Image> */}
             <Text style={[{ 
     fontFamily: "Poppins",
     fontSize: "12px",
@@ -357,10 +362,11 @@ function ManHinhChinh({ navigation, route }) {
               {navigation.navigate("ManTaiKhoan", { user });setColor(1);}
             }}
           >
-            <Image
+            {/* <Image
               source={require("../assets/img/mhnn/user-alt.png")}
               style={styles.imgfooter}
-            ></Image>
+            ></Image> */}
+             <AntDesign name="user" size={23} style={styles.iFooter}></AntDesign>
             <Text style={[styles.textFooter,color == 4 ? { color: "rgba(62, 150, 231, 1)" } : null]}>Tài khoản</Text>
           </TouchableOpacity>
         </View>
@@ -479,8 +485,54 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
     resizeMode: "contain",
+    marginTop:'5px'
   },
 
+  imgContent3: {
+    height: "27px",
+    width: "25px",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    resizeMode: "contain",
+
+  },
+  imgContent2: {
+    height: "27px",
+    width: "25px",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    resizeMode: "contain",
+    marginTop:'5px',
+    marginLeft:'2px',
+  },
+
+  imgContent5: {
+    height: "27px",
+    width: "25px",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    resizeMode: "contain",
+    marginTop:'5px',
+    marginLeft:'1px',
+  },
   content1: {
     flexDirection: "row",
     justifyContent: "space-around",
@@ -678,6 +730,14 @@ const styles = StyleSheet.create({
     fontSize: "12px",
     textAlign: "center",
     top: "71px",
+  },
+
+  
+  iFooter: {
+    left: "22px",
+    top: "61px",
+    height: "19px",
+    width: "25px",
   },
 
 
