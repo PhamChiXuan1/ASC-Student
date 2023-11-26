@@ -5,6 +5,7 @@ import {
   TextInput,
   Image,
   TouchableOpacity,
+  Pressable
 } from "react-native";
 import { useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
@@ -35,21 +36,21 @@ function ManHinhNhacNho({navigation, route}) {
 
       <View style={styles.footer}>
         <View style={styles.trangChu}>
-          <TouchableOpacity onPress={()=>navigation.navigate("ManHinhChinh", {user})}>
+          <Pressable onPress={()=>navigation.navigate("ManHinhChinh", {user})}>
             {/* <Image
               source={require("../assets/img/mhnn/icon trang chủ.png")}
               style={styles.imgfooter}
             ></Image> */}
              <AntDesign name="home" size={23} style={styles.iFooter}></AntDesign>
             <Text style={styles.textFooter}>Trang chủ</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
 
         <View style={styles.thongBao}>
-          <TouchableOpacity >
+          <Pressable >
           <AntDesign name="bells" size={23} style={[styles.iFooter,color == 2 ? { color: "rgba(62, 150, 231, 1)" } : null]}></AntDesign>
             <Text style={[styles.textFooter,color == 2 ? { color: "rgba(62, 150, 231, 1)" } : null]}>Nhắc nhở</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
 
         <View style={styles.maQR}>
@@ -64,25 +65,25 @@ function ManHinhNhacNho({navigation, route}) {
         </View>
 
         <View style={styles.gopY}>
-          <TouchableOpacity onPress={()=>{navigation.navigate('ManHinhGopY', {user})}}>
+          <Pressable onPress={()=>{navigation.navigate('ManHinhGopY', {user})}}>
             {/* <Image
               source={require("../assets/img/mhnn/icon góp ý.png")}
               style={styles.imgfooter}
             ></Image> */}
             <AntDesign name="message1" size={23} style={styles.iFooter}></AntDesign>
             <Text style={styles.textFooter1}>Góp ý</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
 
         <View style={styles.taiKhoan}>
-          <TouchableOpacity onPress={()=>{navigation.navigate('ManTaiKhoan', {user})}}>
+          <Pressable onPress={()=>{navigation.navigate('ManTaiKhoan', {user})}}>
             {/* <Image
               source={require("../assets/img/mhnn/user-alt.png")}
               style={styles.imgfooter}
             ></Image> */}
             <AntDesign name="user" size={23} style={styles.iFooter}></AntDesign>
             <Text style={styles.textFooter}>Tài khoản</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </View>
     </View>

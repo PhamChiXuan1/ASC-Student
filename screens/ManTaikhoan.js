@@ -9,6 +9,7 @@ import {
 import { AntDesign } from "@expo/vector-icons";
 import { Avatar } from "react-native-elements";
 import { useState } from "react";
+import { Pressable } from "react-native";
 function ManTaikhoan({ navigation, route }) {
   const user = route.params.user;
   var [color, setColor]=useState(4);
@@ -96,7 +97,7 @@ function ManTaikhoan({ navigation, route }) {
 
       <View style={styles.footer}>
         <View style={styles.trangChu}>
-          <TouchableOpacity
+          <Pressable
             onPress={() => {
               navigation.navigate("ManHinhChinh", { user });
             }}
@@ -107,11 +108,11 @@ function ManTaikhoan({ navigation, route }) {
             ></Image> */}
             <AntDesign name="home" size={23} style={styles.iFooter}></AntDesign>
             <Text style={styles.textFooter}>Trang chủ</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
 
         <View style={styles.thongBao}>
-          <TouchableOpacity
+          <Pressable
             onPress={() => {
               navigation.navigate("ManHinhNhacNho", { user });
             }}
@@ -122,22 +123,22 @@ function ManTaikhoan({ navigation, route }) {
             ></Image> */}
             <AntDesign name="bells" size={23} style={styles.iFooter}></AntDesign>
             <Text style={styles.textFooter}>Nhắc nhở</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
 
         <View style={styles.maQR}>
-          <TouchableOpacity>
+          <Pressable>
             <View style={styles.bgMaQR}>
               <Image
                 source={require("../assets/img/mhnn/icon qr.png")}
                 style={styles.imgQR}
               ></Image>
             </View>
-          </TouchableOpacity>
+          </Pressable>
         </View>
 
         <View style={styles.gopY}>
-          <TouchableOpacity
+          <Pressable
             onPress={() => {
               navigation.navigate("ManHinhGopY", { user });
             }}
@@ -148,11 +149,11 @@ function ManTaikhoan({ navigation, route }) {
             ></Image> */}
             <AntDesign name="message1" size={23} style={styles.iFooter}></AntDesign>
             <Text style={styles.textFooter1}>Góp ý</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
 
         <View style={styles.taiKhoan}>
-          <TouchableOpacity
+          <Pressable
             onPress={() => {
               navigation.navigate("ManTaiKhoan", { user });
               setColor(4);
@@ -164,7 +165,7 @@ function ManTaikhoan({ navigation, route }) {
             ></Image> */}
             <AntDesign name="user" size={23} style={[styles.iFooter,color == 4 ? { color: "rgba(62, 150, 231, 1)"} : null]}></AntDesign>
             <Text style={[styles.textFooter,color == 4 ? { color: "rgba(62, 150, 231, 1)"} : null]}>Tài khoản</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </View>
     </View>

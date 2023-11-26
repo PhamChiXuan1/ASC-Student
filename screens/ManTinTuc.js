@@ -125,7 +125,7 @@ const data=[
               setcolor(2);
             }}
           >
-            <Text style={{textAlign: 'center',}}>Tin tức-sự kiện</Text>
+            <Text style={{textAlign: 'center',}}>Sự kiện</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[
@@ -144,7 +144,7 @@ const data=[
               setcolor(3);
             }}
           >
-            <Text style={{textAlign: 'center', }}>Nhắc nhở</Text>
+            <Text style={{textAlign: 'center', }}>Tin tức</Text>
           </TouchableOpacity>
           
         </View>

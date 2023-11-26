@@ -9,6 +9,7 @@ import {
   LogBox,
   Dimensions,
   ScrollView,
+  Pressable
 } from "react-native";
 import { useState, useEffect } from "react";
 import Icon from "react-native-vector-icons/AntDesign";
@@ -292,7 +293,7 @@ function ManHinhChinh({ navigation, route }) {
       </View>
       <View style={styles.footer}>
         <View style={styles.trangChu}>
-          <TouchableOpacity
+          <Pressable
             onPress={() => 
               {navigation.navigate("ManHinhChinh", { user });
               setColor(1);}}
@@ -304,11 +305,11 @@ function ManHinhChinh({ navigation, route }) {
               style={styles.imgfooter}
             ></Image> */}
             <Text style={[styles.textFooter,color == 1 ? { color: "rgba(62, 150, 231, 1)" } : null]}>Trang chủ</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
 
         <View style={styles.thongBao}>
-          <TouchableOpacity
+          <Pressable
             onPress={() => {
               navigation.navigate("ManHinhNhacNho", { user });
               setColor(1);}}
@@ -319,22 +320,22 @@ function ManHinhChinh({ navigation, route }) {
               style={styles.imgfooter}
             ></Image> */}
             <Text style={[styles.textFooter]}>Nhắc nhở</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
 
         <View style={styles.maQR}>
-          <TouchableOpacity>
+          <Pressable>
             <View style={styles.bgMaQR}>
               <Image
                 source={require("../assets/img/mhnn/icon qr.png")}
                 style={styles.imgQR}
               ></Image>
             </View>
-          </TouchableOpacity>
+          </Pressable>
         </View>
 
         <View style={styles.gopY}>
-          <TouchableOpacity
+          <Pressable
             onPress={() => {
               {navigation.navigate("ManHinhGopY", { user });
                setColor(1);
@@ -353,11 +354,11 @@ function ManHinhChinh({ navigation, route }) {
     top:'71px',
     marginLeft:'-5px'
   },color == 3 ? { backgroundColor: "rgba(62, 150, 231, 1)" } : null]}>Góp ý</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
 
         <View style={styles.taiKhoan}>
-          <TouchableOpacity
+          <Pressable
             onPress={() => {
               {navigation.navigate("ManTaiKhoan", { user });setColor(1);}
             }}
@@ -368,7 +369,7 @@ function ManHinhChinh({ navigation, route }) {
             ></Image> */}
              <AntDesign name="user" size={23} style={styles.iFooter}></AntDesign>
             <Text style={[styles.textFooter,color == 4 ? { color: "rgba(62, 150, 231, 1)" } : null]}>Tài khoản</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </View>
     </View>

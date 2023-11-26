@@ -1,8 +1,6 @@
 import ManHinhNhacNho from "./screens/ManHinhNhacNho";
 import ManHinhChinh from "./screens/ManHinhChinh";
 import ManHinhLHLThi from "./screens/ManHinhLHLThi";
-import ManHinhLichThi from "./screens/ManHinhLichThi";
-import ManHinhLichHoc from "./screens/ManHinhLichHoc";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ManDangnhap from "./screens/ManDangnhap";
@@ -18,7 +16,6 @@ import ManPhieuThuTongHop from "./screens/ManPhieuthutonghop";
 import ManDiemRenLuyen from "./screens/ManDiemrenluyen";
 import ManThongKeDiemDanh from "./screens/ManThongKeDiemDanh";
 import ManTinTuc from "./screens/ManTinTuc";
-import ManNoiDungTinTuc from "./screens/ManNoiDungTinTuc";
 import ManThanhtich_BieuDo from "./screens/ManThanhTich_BieuDo";
 const Stack = createNativeStackNavigator();
 function App() {
@@ -28,9 +25,6 @@ function App() {
         initialRouteName="ManDangnhap"
         screenOptions={{ headerShown: false }}
       >
-        {/* <Stack.Screen name='Home' component={TabButton}/> */}
-      <Stack.Screen name="ManHinhLichThi" component={ManHinhLichThi} />
-        <Stack.Screen name="ManHinhLichHoc" component={ManHinhLichHoc} />
         <Stack.Screen name="ManHinhLHLThi" component={ManHinhLHLThi} />
         <Stack.Screen name="ManHinhChinh" component={ManHinhChinh} />
         <Stack.Screen name="ManDangnhap" component={ManDangnhap}/>
@@ -47,7 +41,6 @@ function App() {
         <Stack.Screen name="ManHinhNhacNho" component={ManHinhNhacNho}/>
         <Stack.Screen name="ManTaiKhoan" component={ManTaikhoan}/>
         <Stack.Screen name="ManTinTuc" component={ManTinTuc}/>
-        <Stack.Screen name="ManNoiDungTinTuc" component={ManNoiDungTinTuc}/>
         <Stack.Screen name="ManThanhTich_BieuDo" component={ManThanhtich_BieuDo} />
       </Stack.Navigator>
     </NavigationContainer>

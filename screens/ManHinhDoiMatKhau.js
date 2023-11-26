@@ -125,8 +125,8 @@ const styles = StyleSheet.create({
     marginTop:'-10px',
   },
   header: {
-    flex:1,
-    height: "100px",
+   
+    height: "80px",
     // width: "360px",
     backgroundImage: "linear-gradient(to right, #1E90FF,#00BFFF)",
     flexDirection: "row",
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   content: {
-    flex: 8,
+   
   },
 
   imgC: {
@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
   },
 
   footer:{
-    flex:3
+    
 
   }
 });

@@ -9,7 +9,7 @@ import {
 import { useState, useEffect, useCallback } from "react";
 import { useFocusEffect } from "@react-navigation/native";
   function ManDangnhap({navigation}){
-    const [userName, setUserName] = useState("20036191");
+    const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [data, setData] = useState([]);
     const [login, setLogin]= useState("");
@@ -25,11 +25,11 @@ import { useFocusEffect } from "@react-navigation/native";
         const user = data.find((item) => item.username === userName && item.password === password);
         if (user) {
             navigation.navigate("ManHinhChinh",{user:user});
-        setLogin("")
-        } else {
-        //   alert("Wrong username or password");    
+        setLogin("");
+        setUserName("");
+        setPassword("");
+        } else {   
         setLogin("Sai tên đăng nhập hoặc mật khẩu")
-        // setLogin("")
         }
       };  
 
@@ -83,8 +83,8 @@ import { useFocusEffect } from "@react-navigation/native";
                 <TextInput  
                     secureTextEntry
                     placeholder="  Nhập mật khẩu"
-                    // value={password}
-                    style={{   height: "44px",
+                    value={password}
+                    style={{   height: "44px", 
                     width: "330px", }} onChangeText={setPassword} >
 
                 </TextInput>

@@ -249,7 +249,7 @@ const styles = StyleSheet.create({
 
   header2: {
     flexDirection: "row",
-    marginTop: "18px",
+    marginTop: "25px",
     justifyContent: "space-around",
   },
   textH2: {

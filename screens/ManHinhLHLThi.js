@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
   FlatList,
+  Pressable,
 } from "react-native";
 import { useState, useEffect } from "react";
 const dataMHLHLT = [
@@ -66,6 +67,9 @@ function ManHinhLHLThi({ navigation, route }) {
   const user = route.params.user;
   const [data, setData] = useState([]);
   const apiUrl = "https://65538ffb5449cfda0f2ee69f.mockapi.io/user";
+
+  const [color, setcolor] = useState(1);
+
   useEffect(() => {
     fetch(`${apiUrl}/${user.id}/lopHoc`)
       .then((response) => response.json())
@@ -73,6 +77,15 @@ function ManHinhLHLThi({ navigation, route }) {
       .catch((error) => console.error(error));
   }, []);
 
+
+  useEffect(() => {
+    fetch(`${apiUrl}/${user.id}/lopHoc`)
+      .then((response) => response.json())
+      .then((json) => setState(json))
+      .catch((error) => console.error(error));
+  }, []);
+
+  const [state, setState] = useState(data);
   const Item = ({ title }) => (
     <View>
       <View style={styles.content2}>
@@ -82,7 +95,7 @@ function ManHinhLHLThi({ navigation, route }) {
         <Text style={styles.textC3}>{title.tiet}</Text>
       </View>
       <View style={styles.content4}>
-        <Image style={styles.imgc4} source={title.imgKiHieu}></Image>
+        <Image style={styles.imgc4} source={title.img}></Image>
         <View style={styles.c4Text}>
           <Text style={styles.textC4}>{title.tenMonHoc}</Text>
           <View style={{ flexDirection: "row", top: "10px" }}>
@@ -138,9 +151,9 @@ function ManHinhLHLThi({ navigation, route }) {
         </View>
 
         <FlatList
-          data={data}
+          data={state}
           renderItem={({ item }) => <Item title={item} />}
-          scrollEnabled={true}
+          // scrollEnabled={true}
         />
 
         <View style={styles.content6}>
@@ -156,17 +169,62 @@ function ManHinhLHLThi({ navigation, route }) {
       </View>
 
       <View style={styles.footer}>
-        <TouchableOpacity style={styles.btnf1}>
+        <Pressable style={[{
+              height: "40px",
+              width: "60px",
+              alignItems: "center",
+              justifyContent: "center",
+              alignSelf: "center",
+              
+              flex: 2,
+        },color==1?{borderTopWidth: "3px",
+        borderTopColor: "rgba(62, 150, 231, 1)",}:null, ]} onPress={() => {
+             setState(data);
+             setcolor(1);
+          // console.log(data);
+            }}>
           <Text style={styles.textf1}>Tất cả</Text>
-        </TouchableOpacity>
+        </Pressable>
 
-        <TouchableOpacity style={styles.btnf2} onPress={()=>{navigation.navigate("ManHinhLichHoc", {user})}}>
+        <Pressable style={[{
+              height: "40px",
+              width: "60px",
+              alignItems: "center",
+              justifyContent: "center",
+              alignSelf: "center",
+              
+              flex: 2,
+        },color==2?{borderTopWidth: "3px",
+        borderTopColor: "rgba(62, 150, 231, 1)",}:null, ]}        onPress={() => {
+              const newArr = data.filter((item) => {
+                return item.type == "lh";
+              });
+              setState(newArr);
+              setcolor(2);
+              console.log(newArr);
+            }}>
           <Text style={styles.textf1}>Lịch học</Text>
-        </TouchableOpacity>
+        </Pressable>
 
-        <TouchableOpacity style={styles.btnf3} onPress={()=>{navigation.navigate("ManHinhLichThi", {user})}}>
+        <Pressable style={[{
+              height: "40px",
+              width: "60px",
+              alignItems: "center",
+              justifyContent: "center",
+              alignSelf: "center",
+              
+              flex: 2,
+        },color==3?{borderTopWidth: "3px",
+        borderTopColor: "rgba(62, 150, 231, 1)",}:null, ]} onPress={() => {
+              const newArr = data.filter((item) => {
+                return item.type == "lt";
+              });
+              setState(newArr);
+              setcolor(3);
+           
+            }}>
           <Text style={styles.textf1}>Lịch thi</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     </View>
   );
